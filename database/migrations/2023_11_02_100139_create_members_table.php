@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('password')->default('123');
+            $table->string('password')->default(bcrypt('123456'));
             $table->string('phone');
             $table->timestamps();
         });

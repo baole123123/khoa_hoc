@@ -50,8 +50,8 @@
                                     <th scope="col">Mô tả</th>
                                     <th scope="col">Ảnh</th>
                                     <th scope="col">Trạng thái</th>
-                                    <th scope="col">category_id</th>
-                                    <th scope="col">level_id</th>
+                                    <th scope="col">Danh mục</th>
+                                    <th scope="col">Cấp độ</th>
 
                                     <th scope="col">Hành động</th>
                                 </tr>
@@ -64,8 +64,8 @@
                                     <td>{{ $item->description }}</td>
                                     <td><img width="90px" height="90px" src="{{ asset($item->image) }}" alt=""></td>
                                     <td>{{ $item->status }}</td>
-                                    <td>{{ $item->category_id  }}</td>
-                                    <td>{{ $item->level_id  }}</td>
+                                    <td>{{ $item->category->name  }}</td>
+                                    <td>{{ $item->level->name  }}</td>
 
                                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
                                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -74,8 +74,7 @@
                                     <script>
                                         Swal.fire({
                                             icon: 'success',
-                                            title: '<h6>{{ session('
-                                            successMessage ') }}</h6>',
+                                            title: '<h6>{{ session('successMessage') }}</h6>',
                                             showConfirmButton: false,
                                             timer: 2000,
                                             width: '300px',

@@ -18,8 +18,8 @@ class Course extends Model
         'level_id'
     ];
     public $timestamps = true;
-    public function categories() {
-        return $this->belongsTo(Categories::class,'category_id','id');
+    public function category() {
+        return $this->belongsTo(Category::class,'category_id','id');
     }
     public function level() {
         return $this->belongsTo(Level::class,'level_id','id');
