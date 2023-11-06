@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-8">
                     <div class="pagetitle">
-                        <h1>Sửa khóa học</h1>
+                        <h1>Sửa danh mục</h1>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                                                 <table class="table">
                                                     <div class="mb-3">
                                                         <label class="form-label">Tên</label>
-                                                        <input type="text" class="form-control" placeholder="Tên" name="name" value="{{ $item->name }}">
+                                                        <input type="text" class="form-control" placeholder="Tên" name="name" value="{{ $item->name }}" style="width: 440%;">
                                                     </div>
                                                 </table>
                                             </div>

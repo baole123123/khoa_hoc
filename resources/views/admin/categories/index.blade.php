@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-8">
                     <div class="pagetitle">
-                        <h1>Danh sách khóa học</h1>
+                        <h1>Danh sách danh mục</h1>
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>

@@ -54,7 +54,7 @@
                                         @error('status') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">category_id</label>
+                                        <label class="form-label">Danh mục</label>
                                         <select name="category_id" class="form-select">
                                             <option value="">Vui lòng chọn</option>
                                             @foreach($categories as $index => $categorie)
@@ -64,8 +64,13 @@
                                         @error('category_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="ecommerce-customer-name">level_id </label>
-                                        <input type="text" class="form-control" placeholder="Tên" name="level_id" value="{{ old('level_id') }}">
+                                    <label class="form-label">Cấp độ </label>
+                                        <select name="level_id" class="form-select">
+                                            <option value="">Vui lòng chọn</option>
+                                            @foreach($levels as $index => $level)
+                                            <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('level_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </thead>
 

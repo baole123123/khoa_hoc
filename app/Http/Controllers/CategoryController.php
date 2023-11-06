@@ -10,7 +10,6 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-
         $items = Category::paginate(4);
         if (isset($request->keyword)) {
             $keyword = $request->keyword;
