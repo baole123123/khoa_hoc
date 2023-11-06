@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCourseRequest;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Level;
@@ -39,7 +40,7 @@ class CourseController extends Controller
 
         return view('admin.courses.create', $params);
     }
-    public function store(Request $request)
+    public function store(StoreCourseRequest $request)
     {
 
         $item = new Course();
