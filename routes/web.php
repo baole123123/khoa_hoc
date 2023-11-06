@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 Route::resource('levels', \App\Http\Controllers\LevelController::class);
 Route::resource('categories' , \App\Http\Controllers\CategoryController::class);
+Route::resource('courses' , \App\Http\Controllers\CourseController::class);
+
