@@ -3,24 +3,17 @@
 namespace App\Http\Controllers;
 use App\Models\Level;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Requests\StoreLevelRequest;
 use App\Http\Requests\UpdateLevelRequest;
-use Illuminate\Support\Facades\Cookie;
 
 class LevelController extends Controller
 {
     public function index(Request $request) {
         $levels = Level::query();
-        $limit = $request->limit ?? $request->cookie('limit', 1);
-        if ($request->limit) {
-            $limit = $request->limit;
-            Cookie::queue('limit', $limit, 60);
-        }
         if ($request->search) {
             $levels = $levels->where('name', 'LIKE', "%{$request->search}%");
         }
-        $levels = $levels->paginate($limit);
+        $levels = $levels->paginate(5);
         return view('admin.levels.index', compact('levels'));
     }
     public function create() {
