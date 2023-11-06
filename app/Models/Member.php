@@ -14,6 +14,7 @@ class Member extends Model
         'email',
         'password',
         'phone',
+        'image',
     ];
     public $timestamps = true;
     public function course() {
