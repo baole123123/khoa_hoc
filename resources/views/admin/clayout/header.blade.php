@@ -5,15 +5,7 @@
         <img src="{{asset('assets/img/logo.png')}}" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -27,7 +19,7 @@
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
+            <i class='bx bxs-bell'></i>
             <span class="badge bg-primary badge-number">4</span>
           </a><!-- End Notification Icon -->
 
@@ -102,7 +94,7 @@
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
+            <i class='bx bxs-message-detail'></i>
             <span class="badge bg-success badge-number">3</span>
           </a><!-- End Messages Icon -->
 
@@ -183,7 +175,7 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
+                <i class='bx bxs-user-circle'></i>
                 <span>My Profile</span>
               </a>
             </li>
@@ -193,7 +185,7 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
+                <i class='bx bx-cog'></i>
                 <span>Account Settings</span>
               </a>
             </li>
@@ -203,7 +195,7 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
+                <i class='bx bxs-help-circle' ></i>
                 <span>Need Help?</span>
               </a>
             </li>
@@ -213,7 +205,7 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
+                <i class='bx bx-log-out'></i>
                 <span>Sign Out</span>
               </a>
             </li>
