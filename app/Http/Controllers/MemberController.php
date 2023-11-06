@@ -65,4 +65,9 @@ class MemberController extends Controller
         $members = Member::find($id);
         return view('admin.members.show',compact('members'));
     }
+    public function destroy($id) {
+        $members = Member::find($id);
+        $members->delete();
+        return redirect()->route('members.index');
+    }
 }
