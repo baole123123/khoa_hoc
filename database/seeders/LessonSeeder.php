@@ -16,7 +16,7 @@ class LessonSeeder extends Seeder
         DB::table('lessons')->insert([
             [
                 'name' => 'Admin',
-                'chapter_id' => 1
+                'chapter_id' => 2
             ],
         ]);
     }

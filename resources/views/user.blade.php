@@ -90,7 +90,7 @@
     <section id="about" class="about">
       <div class="container">
 
-    
+
       </div>
     </section><!-- End About Section -->
 
@@ -138,6 +138,9 @@
   <script src="{{asset('asset/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{asset('asset/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('asset/vendor/php-email-form/validate.js')}}"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 
   <!-- Template Main JS File -->
   <script src="{{asset('asset/js/main.js')}}"></script>
