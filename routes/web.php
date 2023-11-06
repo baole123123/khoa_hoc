@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::resource('levels', \App\Http\Controllers\LevelController::class);
 Route::resource('categories' , \App\Http\Controllers\CategoryController::class);
