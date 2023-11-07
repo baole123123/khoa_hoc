@@ -24,6 +24,7 @@
   <link href="{{asset('asset/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{asset('asset/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('asset/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="/path/to/boxicons.min.css">
 
   <!-- Template Main CSS File -->
   <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
@@ -138,12 +139,12 @@
   <script src="{{asset('asset/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{asset('asset/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('asset/vendor/php-email-form/validate.js')}}"></script>
-  <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 
   <!-- Template Main JS File -->
   <script src="{{asset('asset/js/main.js')}}"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
+
 
 </body>
 
