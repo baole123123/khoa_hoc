@@ -111,4 +111,5 @@ class CourseController extends Controller
         // return redirect()->back()->with('successMessage2', 'Xóa thành công');
         return redirect()->route('courses.index')->with('successMessage', 'Xóa thành công');
     }
+
 }
