@@ -24,6 +24,8 @@ Route::resource('members' , \App\Http\Controllers\MemberController::class);
 Route::resource('chapters' , \App\Http\Controllers\ChapterController::class);
 Route::resource('categories' , \App\Http\Controllers\CategoryController::class);
 Route::resource('users' , \App\Http\Controllers\UserController::class);
+Route::resource('lessons' , \App\Http\Controllers\LessonContrller::class);
+
 
 Route::put('categorie/softdeletes/{id}', [CategoryController::class, 'softdeletes'])->name('categorie.softdeletes');
 Route::get('categorie/trash', [CategoryController::class, 'trash'])->name('categorie.trash');
