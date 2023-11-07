@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Models\Course;
 
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::resource('categories' , \App\Http\Controllers\CategoryController::class);
 Route::resource('courses' , \App\Http\Controllers\CourseController::class);
 
+//////deletead categories
+Route::resource('categories' , \App\Http\Controllers\CategoryController::class);
+Route::put('categorie/softdeletes/{id}', [CategoryController::class, 'softdeletes'])->name('categorie.softdeletes');
+Route::get('categorie/trash', [CategoryController::class, 'trash'])->name('categorie.trash');
+Route::put('categorie/restoredelete/{id}', [CategoryController::class, 'restoredelete'])->name('categorie.restoredelete');
+Route::get('categorie/destroy/{id}', [CategoryController::class, 'destroy'])->name('categorie_destroy');
