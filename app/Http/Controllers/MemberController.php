@@ -14,7 +14,7 @@ class MemberController extends Controller
             ->where('name', 'LIKE', "%$search%")
             ->orWhere('email', 'LIKE', "%$search%")
             ->orWhere('phone', 'LIKE', "%$search%")
-            ->paginate(2);
+            ->paginate(5);
         return view('admin.members.index', compact('members'));
     }
     public function create() {
