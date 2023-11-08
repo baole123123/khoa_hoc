@@ -15,7 +15,8 @@ class LevelSeeder extends Seeder
     {
         DB::table('levels')->insert([
             [
-                'name' => 'Admin'
+                'name' => 'Admin',
+                'number_course' => '0'
             ],
         ]);
     }

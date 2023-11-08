@@ -62,8 +62,9 @@ class MemberController extends Controller
         return redirect()->route('members.index')->with('success','Sửa thành công thành viên');
     }
     public function show($id) {
-        $members = Member::find($id);
-        return view('admin.members.show',compact('members'));
+        $member = Member::find($id);
+        // dd($member->courses);
+        return view('admin.members.show',compact('member'));
     }
     public function destroy($id) {
         $members = Member::find($id);
