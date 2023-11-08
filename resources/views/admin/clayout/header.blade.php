@@ -174,9 +174,9 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{{ Auth::guard('members')->user() }}">
                 <i class='bx bxs-user-circle'></i>
-                <span>My Profile</span>
+                <span>Thông tin của tôi</span>
               </a>
             </li>
             <li>
@@ -186,7 +186,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class='bx bx-cog'></i>
-                <span>Account Settings</span>
+                <span>Cài đặt tài khoản</span>
               </a>
             </li>
             <li>
@@ -196,7 +196,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
                 <i class='bx bxs-help-circle' ></i>
-                <span>Need Help?</span>
+                <span>Tôi cần giúp đỡ</span>
               </a>
             </li>
             <li>
@@ -206,7 +206,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
                 <i class='bx bx-log-out'></i>
-                <span>Sign Out</span>
+                <span>Đăng xuất</span>
               </a>
             </li>
 
