@@ -15,6 +15,6 @@ class Lesson extends Model
     ];
     public $timestamps = true;
     public function chapter() {
-        $this->belongsTo(Chapter::class,'chapter_id','id');
+       return $this->belongsTo(Chapter::class,'chapter_id','id');
     }
 }

@@ -29,6 +29,7 @@ Route::get('/', function () {
         Route::resource('courses' , \App\Http\Controllers\CourseController::class);
         Route::resource('members' , \App\Http\Controllers\MemberController::class);
         Route::resource('chapters' , \App\Http\Controllers\ChapterController::class);
+        Route::resource('lessons' , \App\Http\Controllers\LessonContrller::class);
         Route::resource('categories' , \App\Http\Controllers\CategoryController::class);
         Route::put('categorie/softdeletes/{id}', [CategoryController::class, 'softdeletes'])->name('categorie.softdeletes');
         Route::get('categorie/trash', [CategoryController::class, 'trash'])->name('categorie.trash');
