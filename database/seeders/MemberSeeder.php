@@ -17,9 +17,9 @@ class MemberSeeder extends Seeder
     {
         DB::table('members')->insert([
             [
-                'name' => 'user' ,
+                'name' => 'users' ,
                 'email' => 'user@gmail.com' ,
-                'password' => Hash::make('123456'),
+                'password' => bcrypt('123456'),
                 'phone' => '123456789'
             ],
         ]);

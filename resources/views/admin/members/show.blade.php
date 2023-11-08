@@ -30,7 +30,7 @@
                                 <tr>
                                     <th colspan="2" style="text-align: center;">
                                         <div style="display: flex; flex-direction: column; align-items: center;">
-                                            <img src="{{ asset($members->image) }}" alt="Member Image" width="100">
+                                            <img src="{{ asset($member->image) }}" alt="Member Image" width="100">
                                             <hr>
                                             <label for="level" class="control-label">Ảnh thành viên</label>
                                         </div>
@@ -41,7 +41,7 @@
                                         <label for="level" class="control-label">Tên</label>
                                     </td>
                                     <td width="35%">
-                                        {{ $members->name }}
+                                        {{ $member->name }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -49,7 +49,7 @@
                                         <label for="level" class="control-label">Email</label>
                                     </td>
                                     <td width="35%">
-                                        {{ $members->email }}
+                                        {{ $member->email }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -57,7 +57,21 @@
                                         <label for="level" class="control-label">Số điện thoại</label>
                                     </td>
                                     <td width="35%">
-                                        {{ $members->phone }}
+                                        {{ $member->phone }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <label for="level" class="control-label">Khóa học đăng ký</label>
+                                    </td>
+                                    <td width="35%">
+                                        @if (empty($member->courses->first()))
+                                            <p>Không có</p>
+                                        @else
+                                            @foreach ($member->courses as $course)
+                                                - {{ $course->name }}<br>
+                                            @endforeach
+                                        @endif
                                     </td>
                                 </tr>
                             </table>

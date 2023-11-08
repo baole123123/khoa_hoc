@@ -16,7 +16,7 @@ class ChapterSeeder extends Seeder
         DB::table('chapters')->insert([
             [
                 'name' => 'Admin',
-                'course_id' => 2
+                'course_id' => 1
             ],
 
         ]);
