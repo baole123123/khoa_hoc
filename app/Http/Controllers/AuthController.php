@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     public function login() {
         if(Auth::guard('members')->check()) {
-            return redirect()->route('home');
+            return redirect()->route('levels.index');
         } else {
             return view('auth.login');
         }
