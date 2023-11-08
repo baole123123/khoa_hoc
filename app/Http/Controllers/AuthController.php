@@ -47,6 +47,16 @@ class AuthController extends Controller
         $member->email = $request->email;
         $member->password = $request->password;
         $member->phone = $request->phone;
+        $fieldName = 'image';
+        if ($request->hasFile($fieldName)) {
+            $fullFileNameOrigin = $request->file($fieldName)->getClientOriginalName();
+            $fileNameOrigin = pathinfo($fullFileNameOrigin, PATHINFO_FILENAME);
+            $extenshion = $request->file($fieldName)->getClientOriginalExtension();
+            $fileName = $fileNameOrigin . '-' . rand() . '_' . time() . '.' . $extenshion;
+            $path = 'storage/' . $request->file($fieldName)->storeAs('public/images', $fileName);
+            $path = str_replace('public/', '', $path);
+            $member->image = $path;
+        }
         $member->save();
         return redirect()->route('login');
     }

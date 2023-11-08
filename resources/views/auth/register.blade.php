@@ -37,7 +37,7 @@
                     <h2 class="title">Đăng ký tài khoản</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('store_register') }}" method="POST">
+                    <form action="{{ route('store_register') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
                             <div class="name">Họ & Tên</div>
@@ -83,6 +83,12 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="name">Ảnh của bạn</div>
+                            <div class="input-group">
+                                <input type="file" name="image" id="level">
+                            </div>
+                        </div><br>
                         <div class="text-center">
                             <div class="center-link">
                                 <a href="{{ route('login') }}" class="back-button">Quay lại trang đăng nhập</a>
