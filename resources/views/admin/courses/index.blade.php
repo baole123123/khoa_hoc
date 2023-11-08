@@ -64,8 +64,8 @@
                                     <td>{{ $item->description }}</td>
                                     <td><img width="90px" height="90px" src="{{ asset($item->image) }}" alt=""></td>
                                     <td>{{ $item->status }}</td>
-                                    <td>{{ $item->category->name  }}</td>
-                                    <td>{{ $item->level->name  }}</td>
+                                    <td>{{ $item->category_name  }}</td>
+                                    <td>{{ $item->level_name  }}</td>
 
                                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
                                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
