@@ -23,12 +23,10 @@
                         <form action="{{ route('checklogin') }}" method="post" class="login-form">
                             @csrf
                             <div class="form-group">
-                                <input type="text" name="email" class="form-control rounded-left"
-                                    placeholder="Email" required>
+                                <input type="text" name="email" class="form-control rounded-left" placeholder="Email" required>
                             </div>
                             <div class="form-group d-flex">
-                                <input type="password" name="password" class="form-control rounded-left"
-                                    placeholder="Password" required>
+                                <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
                             </div>
                             <div class="form-group d-md-flex">
                                 <div class="w-50">

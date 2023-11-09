@@ -29,9 +29,10 @@ class AuthController extends Controller
         ], $messages);
         $data = $request->only('email', 'password');
         if (Auth::guard('members')->attempt($data)) {
-            return redirect()->route('levels.index');
+            return redirect()->route('courses.index')->with('successMessage', 'Đăng nhập thành công');
         } else {
-            return back()->withErrors($validator)->withInput();
+            return back()->withErrors($validator);
+
         }
     }
     public function logout() {
