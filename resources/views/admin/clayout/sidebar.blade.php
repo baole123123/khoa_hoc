@@ -73,17 +73,4 @@
                 </li>
             </ul>
         </li><!-- End Icons Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-person-fill"></i><span>Thành viên</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{route('members.index')}}">
-                        <i class="bi bi-circle"></i><span>Các thành viên</span>
-                    </a>
-                </li>   
-            </ul>
-        </li>
 </aside>

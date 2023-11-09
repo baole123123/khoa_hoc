@@ -47,6 +47,7 @@ class AuthController extends Controller
         $member->email = $request->email;
         $member->password = $request->password;
         $member->phone = $request->phone;
+        $member->group_id = 0;
         $fieldName = 'image';
         if ($request->hasFile($fieldName)) {
             $fullFileNameOrigin = $request->file($fieldName)->getClientOriginalName();

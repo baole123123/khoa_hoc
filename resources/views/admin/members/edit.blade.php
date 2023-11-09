@@ -6,14 +6,12 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="pagetitle">
-                            <a href="{{ route('members.index') }}" style="font-size: 50px;"><i
+                            <a href="{{ route('members.show',$members->id) }}" style="font-size: 50px;"><i
                                     class='bx bx-left-arrow-alt'></i></a>
-                            <h1>Thành viên</h1>
                             <nav>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                                    <li class="breadcrumb-item">Thành viên</li>
-                                    <li class="breadcrumb-item active">Sửa thành viên</li>
+                                    <li class="breadcrumb-item">Sửa thông tin</li>
                                 </ol>
                             </nav>
                         </div>

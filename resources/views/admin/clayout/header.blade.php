@@ -160,7 +160,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{Auth::guard('members')->user()->image}}" alt="Profile" class="rounded-circle">
+            <img src="{{ asset(Auth::guard('members')->user()->image) }}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::guard('members')->user()->name}}</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -174,19 +174,19 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{ Auth::guard('members')->user() }}">
-                <i class='bx bxs-user-circle'></i>
-                <span>Thông tin của tôi</span>
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('members.profile',Auth::guard('members')->user()->id) }}">
+                  <i class='bx bxs-user-circle'></i>
+                  <span>Thông tin của tôi</span>
               </a>
-            </li>
+          </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('changePassword') }}">
                 <i class='bx bx-cog'></i>
-                <span>Cài đặt tài khoản</span>
+                <span>Đổi mật khẩu</span>
               </a>
             </li>
             <li>

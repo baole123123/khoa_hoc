@@ -40,10 +40,6 @@
                                 <div class="col-lg-12">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <h5 class="card-title">Danh sách thành viên</h5>
-                                        <div>
-                                            <a href="{{ route('members.create') }}" class="btn btn-success"><i
-                                                    class='bx bx-book-add'></i></a>
-                                        </div>
                                     </div>
                                 </div>
                                 <table class="table">

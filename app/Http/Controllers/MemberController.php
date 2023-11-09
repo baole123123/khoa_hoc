@@ -5,6 +5,7 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
+use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
@@ -59,7 +60,7 @@ class MemberController extends Controller
                $members->image = $path;
            }
         $members->save();
-        return redirect()->route('members.index')->with('success','Sửa thành công thành viên');
+        return redirect()->route('members.show',$members->id)->with('success','Sửa thành công thành viên');
     }
     public function show($id) {
         $member = Member::find($id);
@@ -70,5 +71,9 @@ class MemberController extends Controller
         $members = Member::find($id);
         $members->delete();
         return redirect()->route('members.index');
+    }
+    public function showProfile(Request $request, $id) {
+        $member = Auth::guard('members')->user();
+        return redirect()->route('members.show',compact('member'));
     }
 }
