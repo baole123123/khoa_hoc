@@ -49,7 +49,6 @@
                                     <th scope="col">Tên</th>
                                     <th scope="col">Chương học </th>
                                     <th scope="col">Thao tác</th>
-
                                 </tr>
                             </thead>
                             @foreach ($items as $index => $item)
@@ -83,6 +82,7 @@
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="{{route('lessons.edit',$item->id)}}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                <a class="dropdown-item" href="{{route('lessons.show',$item->id)}}"><i class='bx bx-show-alt'></i> Show</a>
 
                                                 </form>
 
