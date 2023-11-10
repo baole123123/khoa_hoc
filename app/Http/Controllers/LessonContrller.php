@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Chapter;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
@@ -32,14 +34,16 @@ class LessonContrller extends Controller
     }
     public function store(Request $request)
     {
-
         $item = new Lesson();
         $item->name = $request->name;
-        $item->chapter_id  = $request->chapter_id;
-
-
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/videos', $fileName);
+            $item->video = $fileName;
+        }
+        $item->chapter_id = $request->chapter_id;
         $item->save();
-        // $request->session()->flash('successMessage', 'Thêm thành công');
         return redirect()->route('lessons.index')->with('successMessage', 'Thêm thành công');
     }
     public function edit($id)
@@ -48,25 +52,38 @@ class LessonContrller extends Controller
         $chapters = Chapter::get();
         $params = [
             'chapters' => $chapters,
-            'item' => $item 
+            'item' => $item
         ];
         return view('admin.lessons.edit', $params);
     }
     public function update(Request $request, $id)
     {
         $item = Lesson::find($id);
-        $item->name = $request->name;
-        $item->chapter_id = $request->chapter_id;
-
+        $item->update([
+            'name' => $request->name,
+            'chapter_id' => $request->chapter_id,
+        ]);
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            Storage::disk('public')->putFileAs('videos', new File($file), $fileName);
+            if ($item->video) {
+                Storage::disk('public')->delete('videos/' . $item->video);
+            }
+        }
+        $item->video = $fileName;
         $item->save();
-        // $request->session()->flash('successMessage1', 'Cập nhật thành công');
         return redirect()->route('lessons.index')->with('successMessage', 'Cập nhật thành công');
+    }
+    public function show($id)
+    {
+        $item = Lesson::find($id);
+        return view('admin.lessons.show', compact('item'));
     }
     public function destroy($id)
     {
         $item = Lesson::find($id);
         $item->delete();
-        // return redirect()->back()->with('successMessage2', 'Xóa thành công');
         return redirect()->back()->with('successMessage', 'Xóa thành công');
     }
 }
