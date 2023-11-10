@@ -62,7 +62,7 @@
                                                         <td>
                                                             <div class="mb-3">
                                                                 <label class="form-label">Video</label>
-                                                                <input type="file" class="form-control" name="video" placeholder="Video..." id="video" accept="video/*" required>
+                                                                <input type="file" class="form-control" name="video" placeholder="Video..." id="video" accept="video/*">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -73,7 +73,6 @@
                                     <div class="d-flex align-content-center flex-wrap gap-3">
                                         <a href="{{route('lessons.index')}}" class="btn btn-secondary">Trở Về</a>
                                         <button type="submit" class="btn btn-primary">Lưu</button>
-
                                     </div>
                                 </form>
                             </div>

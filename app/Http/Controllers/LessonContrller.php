@@ -71,7 +71,6 @@ class LessonContrller extends Controller
                 Storage::disk('public')->delete('videos/' . $item->video);
             }
         }
-        $item->video = $fileName;
         $item->save();
         return redirect()->route('lessons.index')->with('successMessage', 'Cập nhật thành công');
     }
