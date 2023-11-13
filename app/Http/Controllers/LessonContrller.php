@@ -36,6 +36,7 @@ class LessonContrller extends Controller
     {
         $item = new Lesson();
         $item->name = $request->name;
+        $item->reading = $request->reading;
         if ($request->hasFile('video')) {
             $file = $request->file('video');
             $fileName = time() . '_' . $file->getClientOriginalName();
@@ -62,19 +63,23 @@ class LessonContrller extends Controller
         $item->update([
             'name' => $request->name,
             'chapter_id' => $request->chapter_id,
+            'reading' => $request->reading,
         ]);
+        $existingVideo = $item->video;
         if ($request->hasFile('video')) {
             $file = $request->file('video');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('public/videos', $fileName);
-            if ($item->video) {
-                $oldFilePath = 'videos/' . $item->video;
+            if ($existingVideo) {
+                $oldFilePath = 'videos/' . $existingVideo;
                 if (Storage::disk('public')->exists($oldFilePath)) {
                     Storage::disk('public')->delete($oldFilePath);
                 }
             }
+            $item->video = $fileName;
+        } else {
+            $item->video = $existingVideo;
         }
-        $item->video = $fileName;
         $item->save();
         return redirect()->route('lessons.index')->with('successMessage', 'Cập nhật thành công');
     }

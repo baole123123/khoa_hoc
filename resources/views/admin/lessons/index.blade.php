@@ -54,7 +54,9 @@
                             @foreach ($items as $index => $item)
                             <tbody>
                                 <tr>
-                                    <th scope="row">{{ $index + 1}}</th>
+                                    <th scope="row">
+                                        {{ ($items->currentPage() - 1) * $items->perPage() + $index + 1 }}
+                                    </th>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->chapter->name }}</td>
                                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">

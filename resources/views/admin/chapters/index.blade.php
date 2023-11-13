@@ -58,7 +58,9 @@
                                     @foreach ($chapters as $index => $chapter)
                                         <tbody>
                                             <tr>
-                                                <th style="text-align:center;" scope="row">{{ $index + 1 }}</th>
+                                                <th scope="row">
+                                                    {{ ($chapters->currentPage() - 1) * $chapters->perPage() + $index + 1 }}
+                                                </th>
                                                 <td style="text-align:center;">{{ $chapter->name }}</td>
                                                 <td style="text-align:center;">{{ $chapter->course->name }}</td>
                                                 <td style="text-align:center;">

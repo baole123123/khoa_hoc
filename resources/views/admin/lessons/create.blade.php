@@ -47,7 +47,10 @@
                                             @endforeach
                                         </select>
                                         @error('level_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
-                                </thead>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="ecommerce-customer-name">Bài đọc</label>
+                                            <textarea class="form-control" name="reading">{{ old('reading') }}</textarea>
+                                        </div>
                                         <div class="mb-3">
                                             <label class="form-label">Video</label>
                                             <input type="file" class="form-control" name="video" placeholder="Video..." id="video" accept="video/*" required>

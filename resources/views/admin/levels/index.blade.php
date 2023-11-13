@@ -57,7 +57,9 @@
                                 @foreach ($levels as $index => $level)
                                 <tbody>
                                     <tr>
-                                        <th style="text-align:center;" scope="row">{{ $index + 1 }}</th>
+                                        <th scope="row">
+                                            {{ ($levels->currentPage() - 1) * $levels->perPage() + $index + 1 }}
+                                        </th>
                                         <td style="text-align:center;">{{ $level->name }}</td>
                                         <td style="text-align:center;">{{ $level->number_course }}</td>
                                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
