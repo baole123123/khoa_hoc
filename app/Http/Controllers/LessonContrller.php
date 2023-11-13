@@ -66,11 +66,15 @@ class LessonContrller extends Controller
         if ($request->hasFile('video')) {
             $file = $request->file('video');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            Storage::disk('public')->putFileAs('videos', new File($file), $fileName);
+            $file->storeAs('public/videos', $fileName);
             if ($item->video) {
-                Storage::disk('public')->delete('videos/' . $item->video);
+                $oldFilePath = 'videos/' . $item->video;
+                if (Storage::disk('public')->exists($oldFilePath)) {
+                    Storage::disk('public')->delete($oldFilePath);
+                }
             }
         }
+        $item->video = $fileName;
         $item->save();
         return redirect()->route('lessons.index')->with('successMessage', 'Cập nhật thành công');
     }
