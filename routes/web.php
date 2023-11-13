@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('user');
+});Route::get('/a', function () {
     return view('index');
 });
 Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
