@@ -20,9 +20,9 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class='bx bxs-bell'></i>
-            <span class="badge bg-primary badge-number">4</span>
+            <span class="badge bg-primary badge-number"></span>
           </a><!-- End Notification Icon -->
-
+<!--
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
             <li class="dropdown-header">
               You have 4 new notifications
@@ -87,7 +87,7 @@
               <a href="#">Show all notifications</a>
             </li>
 
-          </ul><!-- End Notification Dropdown Items -->
+          </ul>End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
 
@@ -95,10 +95,10 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class='bx bxs-message-detail'></i>
-            <span class="badge bg-success badge-number">3</span>
+            <span class="badge bg-success badge-number"></span>
           </a><!-- End Messages Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+          <!-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
               You have 3 new messages
               <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
@@ -153,7 +153,7 @@
               <a href="#">Show all messages</a>
             </li>
 
-          </ul><!-- End Messages Dropdown Items -->
+          </ul>End Messages Dropdown Items -->
 
         </li><!-- End Messages Nav -->
 

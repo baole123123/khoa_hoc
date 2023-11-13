@@ -34,9 +34,9 @@
                         </div>
                         <table class="table">
                             <tr>
-                                <th>stt</th>
+                                <th>STT</th>
                                 <th>Tên</th>
-                                <th>tùy chọn</th>
+                                <th>Hành động</th>
                             </tr>
                             <tbody>
                                 @foreach ($categories as $key => $categorie)
@@ -64,12 +64,18 @@
                                     @endif
 
                                     <td>
-                                        <form action="{{ route('categorie.restoredelete', $categorie->id) }}" method="POST">
-                                            @csrf
-                                            @method('put')
-                                            <button type="submit" class="btn btn-success">Khôi phục</button>
-                                            <a href="{{ route('categorie_destroy', $categorie->id) }}" id="{{ $categorie->id }}" class="btn btn-danger">Xóa</a>
-                                        </form>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                            <div class="dropdown-menu">
+                                                <form action="{{ route('categorie.restoredelete', $categorie->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button type="submit" class="dropdown-item"><i class="bi bi-arrow-counterclockwise"></i> Khôi phục</button>
+                                                <a href="{{ route('categorie_destroy', $categorie->id) }}" id="{{ $categorie->id }}" class="dropdown-item"><i class="bx bx-trash me-1" onclick="return confirm('Bạn có muốn xóa ?')"></i>Xóa</a>
+                                                </form>
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
 
