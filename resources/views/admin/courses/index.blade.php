@@ -59,7 +59,9 @@
                             @foreach ($items as $index => $item)
                             <tbody>
                                 <tr>
-                                    <th scope="row">{{ $index + 1}}</th>
+                                    <th scope="row">
+                                        {{ ($items->currentPage() - 1) * $items->perPage() + $index + 1 }}
+                                    </th>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td><img width="90px" height="90px" src="{{ asset($item->image) }}" alt=""></td>

@@ -12,6 +12,8 @@ class Lesson extends Model
     protected $fillable = [
         'name',
         'chapter_id',
+        'video',
+        'reading',
     ];
     public $timestamps = true;
     public function chapter() {

@@ -41,7 +41,7 @@
                                                         <td>
                                                             <div class="mb-3">
                                                                 <label class="form-label">Tên</label>
-                                                                <input type="text" class="form-control" placeholder="Tên" name="name" value="{{ $item->name }}" style="width: 540%;">
+                                                                <input type="text" class="form-control" placeholder="Tên" name="name" value="{{ $item->name }}" style="width: 275%;">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -49,7 +49,7 @@
                                                         <td>
                                                             <div class="mb-3">
                                                                 <label class="form-label">Cấp độ</label>
-                                                                <select name="chapter_id" class="form-select" style="width: 540%;">
+                                                                <select name="chapter_id" class="form-select" style="width: 275%;">
                                                                     <option value="">Vui lòng chọn</option>
                                                                     @foreach($chapters as $index => $chapter)
                                                                     <option value="{{ $chapter->id }}" {{ $chapter->id == $item->chapter_id ? 'selected' : '' }}>{{ $chapter->name }}</option>
@@ -61,8 +61,16 @@
                                                     <tr>
                                                         <td>
                                                             <div class="mb-3">
+                                                                <label class="form-label">Bài đọc</label>
+                                                                <textarea name="reading" class="form-control" style="width: 275%;">{{ $item->reading }}</textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="mb-3">
                                                                 <label class="form-label">Video</label>
-                                                                <input type="file" class="form-control" name="video" placeholder="Video..." id="video" accept="video/*">
+                                                                <input type="file" class="form-control" name="video" value="{{ asset('storage/videos/' . $item->video) }}" placeholder="Video..." id="video" accept="video/*">
                                                             </div>
                                                         </td>
                                                     </tr>

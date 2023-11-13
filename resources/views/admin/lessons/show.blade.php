@@ -35,6 +35,14 @@
                                 </tr>
                                 <tr>
                                     <th style="text-align: center;">
+                                        <label for="level" class="control-label">Bài đọc</label>
+                                    </th>
+                                    <td width="35%">
+                                        {{ $item->reading }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
                                         <label for="level" class="control-label">Video bài học</label>
                                     </th>
                                     <td width="35%">
