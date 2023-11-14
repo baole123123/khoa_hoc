@@ -36,7 +36,7 @@ class ChapterController extends Controller
         $chapter->name = $request->name;
         $chapter->course_id = $request->course_id;
         $chapter->save();
-        return redirect()->route('chapters.index');
+        return redirect()->route('chapters.index')->with('successMessage', 'Thêm thành công');
     }
     public function edit($id)
     {
@@ -50,12 +50,12 @@ class ChapterController extends Controller
         $chapters->name = $request->name;
         $chapters->course_id = $request->course_id;
         $chapters->save();
-        return redirect()->route('chapters.index');
+        return redirect()->route('chapters.index')->with('successMessage', 'Cập nhật thành công');
     }
     public function destroy($id)
     {
         $chapters = Chapter::find($id);
         $chapters->delete();
-        return redirect()->route('chapters.index');
+        return redirect()->route('chapters.index')->with('successMessage', 'Xóa thành công');
     }
 }
