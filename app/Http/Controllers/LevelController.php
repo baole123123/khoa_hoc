@@ -24,7 +24,7 @@ class LevelController extends Controller
         $levels->name = $request->name;
         $levels->number_course = 0;
         $levels->save();
-        return redirect()->route('levels.index')->with('success','Thêm thành công cấp độ');
+        return redirect()->route('levels.index')->with('successMessage', 'Thêm thành công');
     }
     public function edit($id) {
         $level = Level::find($id);
@@ -35,7 +35,7 @@ class LevelController extends Controller
         $level->name = $request->name;
         $level->number_course = 0;
         $level->save();
-        return redirect()->route('levels.index')->with('success','Sửa thành công cấp độ');
+        return redirect()->route('levels.index')->with('successMessage', 'Cập nhật thành công');
     }
     public function destroy($id) {
         try {

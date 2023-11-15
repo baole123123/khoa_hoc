@@ -65,7 +65,7 @@ class CategoryController extends Controller
         $item->deleted_at = date("Y-m-d h:i:s");
         $item->save();
         // $request->session()->flash('successMessage2', 'Deleted successfully');
-        return redirect()->route('categories.index')->with('successMessage', 'Xóa thành công');
+        return redirect()->route('categories.index')->with('successMessage', 'Đã chuyển vào thùng rác');
     }
     public  function trash()
     {
