@@ -49,8 +49,13 @@
                                         @error('image') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="ecommerce-customer-name">Trạng thái</label>
-                                        <input type="text" class="form-control" placeholder="Trạng thái" name="status" value="{{ old('status') }}">
+                                    <div class="mb-3">
+                                        <label class="form-label mb-1" for="status-org">Trạng thái </label>
+                                        <select class="form-control" name="status">
+                                            <option value="">Tất cả</option>
+                                            <option value="con">Còn</option>
+                                            <option value="het">Hết</option>
+                                        </select>
                                         @error('status') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="mb-3">

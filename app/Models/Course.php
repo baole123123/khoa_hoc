@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+    const ACTIVE = 'Còn';
+    const INACTIVE = 'Hết';
     use HasFactory;
     protected $table = 'courses';
     protected $fillable = [

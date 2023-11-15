@@ -68,7 +68,11 @@
                                                         <td>
                                                             <div class="mb-3">
                                                                 <label class="form-label">Trạng thái</label>
-                                                                <input type="text" class="form-control" placeholder="Trạng thái" name="status" value="{{ $item->status }}" style="width: 340%;">
+                                                                <select class="form-control" name="status">
+                                                                    <option value="">Tất cả</option>
+                                                                    <option @selected($item->status == \App\Models\Course::ACTIVE) value="{{ \App\Models\Course::ACTIVE }}">Còn</option>
+                                                                    <option @selected($item->status == \App\Models\Course::INACTIVE) value="{{ \App\Models\Course::INACTIVE }}">Hết</option>
+                                                                </select>
                                                             </div>
                                                         </td>
                                                     </tr>
