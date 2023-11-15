@@ -50,10 +50,13 @@ class CategoryController extends Controller
     }
     public function destroy($id)
     {
-        $item = Category::onlyTrashed()->findOrFail($id);
-        $item->forceDelete();
-        // return redirect()->back()->with('successMessage2', 'Xóa thành công');
-        return redirect()->back()->with('successMessage', 'Xóa thành công');
+        try {
+            $item = Category::onlyTrashed()->findOrFail($id);
+            $item->forceDelete();
+            return redirect()->back()->with('successMessage', 'Xóa thành công');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errorMessage','Có lỗi xảy ra');
+        }
     }
     public  function softdeletes($id)
     {
@@ -72,10 +75,13 @@ class CategoryController extends Controller
     }
     public function restoredelete($id)
     {
-        $item = Category::withTrashed()->where('id', $id);
-        $item->restore();
-        return redirect()->route('categorie.trash')->with('successMessage', 'Khôi phục thành công');
-        // return redirect()->route('category.trash');
+        try {
+            $item = Category::withTrashed()->where('id', $id)->firstOrFail();
+            $item->restore();
+            return redirect()->route('categorie.trash')->with('successMessage', 'Khôi phục thành công');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errorMessage','Không thể xóa');
+        }
     }
     public function show($id)
     {

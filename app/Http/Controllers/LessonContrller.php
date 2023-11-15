@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Chapter;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLessonRequest;
+use App\Http\Requests\UpdateLessonRequest;
 
 class LessonContrller extends Controller
 {
@@ -32,8 +34,9 @@ class LessonContrller extends Controller
         ];
         return view('admin.lessons.create', $params);
     }
-    public function store(Request $request)
-    {
+    public function store(StoreLessonRequest $request)
+{
+    try {
         $item = new Lesson();
         $item->name = $request->name;
         $item->reading = $request->reading;
@@ -46,7 +49,10 @@ class LessonContrller extends Controller
         $item->chapter_id = $request->chapter_id;
         $item->save();
         return redirect()->route('lessons.index')->with('successMessage', 'Thêm thành công');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('errorMessage', 'Có lỗi xảy ra');
     }
+}
     public function edit($id)
     {
         $item = Lesson::find($id);
@@ -57,32 +63,38 @@ class LessonContrller extends Controller
         ];
         return view('admin.lessons.edit', $params);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateLessonRequest $request, $id)
     {
-        $item = Lesson::find($id);
-        $item->update([
-            'name' => $request->name,
-            'chapter_id' => $request->chapter_id,
-            'reading' => $request->reading,
-        ]);
-        $existingVideo = $item->video;
-        if ($request->hasFile('video')) {
-            $file = $request->file('video');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('public/videos', $fileName);
-            if ($existingVideo) {
-                $oldFilePath = 'videos/' . $existingVideo;
-                if (Storage::disk('public')->exists($oldFilePath)) {
-                    Storage::disk('public')->delete($oldFilePath);
+        try {
+            $item = Lesson::find($id);
+            $item->update([
+                'name' => $request->name,
+                'chapter_id' => $request->chapter_id,
+                'reading' => $request->reading,
+            ]);
+            $existingVideo = $item->video;
+            if ($request->hasFile('video')) {
+                $file = $request->file('video');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $file->storeAs('public/videos', $fileName);
+                if ($existingVideo) {
+                    $oldFilePath = 'videos/' . $existingVideo;
+
+                    if (Storage::disk('public')->exists($oldFilePath)) {
+                        Storage::disk('public')->delete($oldFilePath);
+                    }
                 }
+                $item->video = $fileName;
+            } else {
+                $item->video = $existingVideo;
             }
-            $item->video = $fileName;
-        } else {
-            $item->video = $existingVideo;
+            $item->save();
+            return redirect()->route('lessons.index')->with('successMessage', 'Cập nhật thành công');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errorMessage', 'Đã xảy ra lỗi khi cập nhật');
         }
-        $item->save();
-        return redirect()->route('lessons.index')->with('successMessage', 'Cập nhật thành công');
     }
+
     public function show($id)
     {
         $item = Lesson::find($id);
@@ -90,8 +102,12 @@ class LessonContrller extends Controller
     }
     public function destroy($id)
     {
-        $item = Lesson::find($id);
-        $item->delete();
-        return redirect()->back()->with('successMessage', 'Xóa thành công');
+        try {
+            $item = Lesson::findOrFail($id);
+            $item->delete();
+            return redirect()->back()->with('successMessage', 'Xóa thành công');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errorMessage', 'Không thể xóa');
+        }
     }
 }

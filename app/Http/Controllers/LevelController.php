@@ -38,8 +38,15 @@ class LevelController extends Controller
         return redirect()->route('levels.index')->with('success','Sửa thành công cấp độ');
     }
     public function destroy($id) {
-        $level = Level::find($id);
-        $level->delete();
-        return redirect()->route('levels.index');
+        try {
+            $level = Level::find($id);
+            if (!$level) {
+                throw new \Exception("Có lỗi xảy ra");
+            }
+            $level->delete();
+            return redirect()->route('levels.index')->with('success','Xóa thành công');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors([$e->getMessage()]);
+        }
     }
 }

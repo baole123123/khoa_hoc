@@ -42,6 +42,7 @@
                                                             <div class="mb-3">
                                                                 <label class="form-label">Tên</label>
                                                                 <input type="text" class="form-control" placeholder="Tên" name="name" value="{{ $item->name }}" style="width: 275%;">
+                                                                @error('name') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -63,6 +64,7 @@
                                                             <div class="mb-3">
                                                                 <label class="form-label">Bài đọc</label>
                                                                 <textarea name="reading" class="form-control" style="width: 275%;">{{ $item->reading }}</textarea>
+                                                                @error('reading') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                                             </div>
                                                         </td>
                                                     </tr>
