@@ -3,6 +3,7 @@
 use App\Models\Course;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user');
+    return view('shop.home');
 });Route::get('/a', function () {
     return view('index');
 });
+Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
+
 Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checklogin'])->name('checklogin');
 Route::get('/admin-register', [AuthController::class, 'register'])->name('register');
