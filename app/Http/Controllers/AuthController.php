@@ -39,27 +39,4 @@ class AuthController extends Controller
         Auth::guard('members')->logout();
         return redirect()->route('login');
     }
-    public function register() {
-        return view('auth.register');
-    }
-    public function store_register(RegisterRequest $request) {
-        $member = new Member();
-        $member->name = $request->name;
-        $member->email = $request->email;
-        $member->password = $request->password;
-        $member->phone = $request->phone;
-        $member->group_id = 0;
-        $fieldName = 'image';
-        if ($request->hasFile($fieldName)) {
-            $fullFileNameOrigin = $request->file($fieldName)->getClientOriginalName();
-            $fileNameOrigin = pathinfo($fullFileNameOrigin, PATHINFO_FILENAME);
-            $extenshion = $request->file($fieldName)->getClientOriginalExtension();
-            $fileName = $fileNameOrigin . '-' . rand() . '_' . time() . '.' . $extenshion;
-            $path = 'storage/' . $request->file($fieldName)->storeAs('public/images', $fileName);
-            $path = str_replace('public/', '', $path);
-            $member->image = $path;
-        }
-        $member->save();
-        return redirect()->route('login');
-    }
 }

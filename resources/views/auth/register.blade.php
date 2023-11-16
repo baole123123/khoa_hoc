@@ -72,26 +72,9 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="name">Số điện thoại</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="phone">
-                                </div>
-                                @error('phone')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Ảnh của bạn</div>
-                            <div class="input-group">
-                                <input type="file" name="image" id="level">
-                            </div>
-                        </div><br>
                         <div class="text-center">
                             <div class="center-link">
-                                <a href="{{ route('login') }}" class="back-button">Quay lại trang đăng nhập</a>
+                                <a href="{{ route('login-shop') }}" class="back-button">Quay lại trang đăng nhập</a>
                             </div>
                         </div><br>
                         <div class="center-screen">

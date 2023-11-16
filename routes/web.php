@@ -3,6 +3,7 @@
 use App\Models\Course;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthShopController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,12 +23,13 @@ Route::get('/', function () {
 });Route::get('/a', function () {
     return view('index');
 });
+Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
+Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->name('checkloginShop');
+Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
+Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
 Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
-
 Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checklogin'])->name('checklogin');
-Route::get('/admin-register', [AuthController::class, 'register'])->name('register');
-Route::post('/store-register', [AuthController::class, 'store_register'])->name('store_register');
 Route::get('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangePasswordForm'])->name('changePassword');
 Route::post('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'changePassword'])->name('changePassword.submit');
 Route::prefix('/')->middleware(['auth.check'])->group(function () {
