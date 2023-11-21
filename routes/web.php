@@ -3,9 +3,14 @@
 use App\Models\Course;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\CourseController;
+
+use App\Http\Controllers\AuthShopController;
+
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
+Auth::routes();
 
 // Route::get('/', function () {
 //     return view('shop.home');
@@ -31,10 +40,17 @@ Route::get('shop/show/{id}', [ShopController::class, 'show'])->name('shop.show')
 // Route::get('admin/courses/{id}', [CourseController::class, 'show'])->name('admin.courses.show');
 
 
+
+    return view('index');
+});
+Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
+Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->name('checkloginShop');
+Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
+Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
+Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
+
 Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checklogin'])->name('checklogin');
-Route::get('/admin-register', [AuthController::class, 'register'])->name('register');
-Route::post('/store-register', [AuthController::class, 'store_register'])->name('store_register');
 Route::get('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangePasswordForm'])->name('changePassword');
 Route::post('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'changePassword'])->name('changePassword.submit');
 Route::prefix('/')->middleware(['auth.check'])->group(function () {
@@ -51,3 +67,6 @@ Route::prefix('/')->middleware(['auth.check'])->group(function () {
     Route::put('categorie/restoredelete/{id}', [CategoryController::class, 'restoredelete'])->name('categorie.restoredelete');
     Route::get('categorie/destroy/{id}', [CategoryController::class, 'destroy'])->name('categorie_destroy');
 });
+Route::post('/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('addToCart');
+Route::get('/shop/home/cart', [ShopController::class, 'homeCart'])->name('cart');
+Route::delete('/cart/destroy/{id}', [ShopController::class, 'cartDestroy'])->name('destroy-cart');

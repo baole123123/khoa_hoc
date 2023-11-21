@@ -46,10 +46,10 @@
                                             <option value="{{ $chapter->id }}">{{ $chapter->name }}</option>
                                             @endforeach
                                         </select>
-                                        @error('level_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                         <div class="mb-3">
                                             <label class="form-label" for="ecommerce-customer-name">Bài đọc</label>
                                             <textarea class="form-control" name="reading">{{ old('reading') }}</textarea>
+                                            @error('reading') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Video</label>

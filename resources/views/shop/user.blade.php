@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=9">
     <meta name="description" content="Gambolthemes">
     <meta name="author" content="Gambolthemes">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Cursus - Index</title>
-
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="images/fav.png">
 
@@ -44,6 +44,98 @@
                 <div class="row">
                     <div class="col-xl-9 col-lg-8">
 
+
+
+                        <div class="section3125">
+                            <h4 class="item_title">Live Streams</h4>
+                            <a href="live_streams.html" class="see150">See all</a>
+                            <div class="la5lo1">
+                                <div class="owl-carousel live_stream owl-theme">
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-1.jpg')}}" alt="">
+                                                <h4>John Doe</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-2.jpg')}}" alt="">
+                                                <h4>Jassica</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-9.jpg')}}" alt="">
+                                                <h4>Edututs+</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-3.jpg')}}" alt="">
+                                                <h4>Joginder Singh</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-4.jpg')}}" alt="">
+                                                <h4>Zoena</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-5.jpg')}}" alt="">
+                                                <h4>Albert Dua</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-6.jpg')}}" alt="">
+                                                <h4>Ridhima</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-7.jpg')}}" alt="">
+                                                <h4>Amritpal</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="stream_1">
+                                            <a href="live_output.html" class="stream_bg">
+                                                <img src="{{asset('asset/images/left-imgs/img-8.jpg')}}" alt="">
+                                                <h4>Jimmy</h4>
+                                                <p>live<span></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         @yield('content')
 
 
@@ -52,8 +144,13 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="right_side">
                             <div class="fcrse_2 mb-30">
+
                                 <!-- <div class="tutor_img">
                                     <a href="my_instructor_profile_view.html"><img src="images/left-imgs/img-10.jpg" alt=""></a>
+
+                                <div class="tutor_img">
+                                    <a href="my_instructor_profile_view.html"><img src="{{asset('asset/images/left-imgs/img-10.jpg')}}" alt=""></a>
+
                                 </div>
                                 <div class="tutor_content_dt">
                                     <div class="tutor150">
@@ -76,48 +173,12 @@
                                     <a href="my_instructor_profile_view.html" class="prfle12link">Go To Profile</a>
                                 </div>
                             </div>
-                            <div class="fcrse_3">
-                                <div class="cater_ttle">
-                                    <h4>Live Streaming</h4>
-                                </div>
-                                <div class="live_text">
-                                    <div class="live_icon"><i class="uil uil-kayak"></i></div>
-                                    <div class="live-content">
-                                        <p>Set up your channel and stream live to your students</p>
-                                        <button class="live_link" onclick="window.location.href = 'add_streaming.html';">Get Started</button>
-                                        <span class="livinfo">Info : This feature only for 'Instructors'.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="get1452">
-                                <h4>Get personalized recommendations</h4>
-                                <p>Answer a few questions for your top picks</p>
-                                <button class="Get_btn" onclick="window.location.href = '#';">Get Started</button>
-                            </div>
-                            <div class="fcrse_3">
-                                <div class="cater_ttle">
-                                    <h4>Top Categories</h4>
-                                </div>
-                                <ul class="allcate15">
-                                    <li><a href="#" class="ct_item"><i class='uil uil-arrow'></i>Development</a></li>
-                                    <li><a href="#" class="ct_item"><i class='uil uil-graph-bar'></i>Business</a></li>
-                                    <li><a href="#" class="ct_item"><i class='uil uil-monitor'></i>IT and Software</a></li>
-                                    <li><a href="#" class="ct_item"><i class='uil uil-ruler'></i>Design</a></li>
-                                    <li><a href="#" class="ct_item"><i class='uil uil-chart-line'></i>Marketing</a></li>
-                                    <li><a href="#" class="ct_item"><i class='uil uil-book-open'></i>Personal Development</a></li>
-                                    <li><a href="#" class="ct_item"><i class='uil uil-camera'></i>Photography</a></li>
-                                    <li><a href="#" class="ct_item"><i class='uil uil-music'></i>Music</a></li>
-                                </ul>
-                            </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
         @include('users.clayout.footer')
-
     </div>
     <!-- Body End -->
 
@@ -128,6 +189,8 @@
     <script src="{{asset('asset/vendor/semantic/semantic.min.js')}}"></script>
     <script src="{{asset('asset/js/custom.js')}}"></script>
     <script src="{{asset('asset/js/night-mode.js')}}"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
 </body>
