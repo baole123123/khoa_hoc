@@ -101,7 +101,6 @@ class CourseController extends Controller
             $item->image = $path;
         }
         $item->save();
-        // $request->session()->flash('successMessage1', 'Cập nhật thành công');
         return redirect()->route('courses.index')->with('successMessage', 'Cập nhật thành công');
     }
     public function destroy($id)
