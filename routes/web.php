@@ -3,7 +3,11 @@
 use App\Models\Course;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\CourseController;
+
 use App\Http\Controllers\AuthShopController;
+
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -18,11 +22,25 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
 Auth::routes();
+
 // Route::get('/', function () {
 //     return view('shop.home');
 // });
 Route::get('/a', function () {
+    return view('shop.show');
+});
+//// shop
+Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
+Route::get('shop/detail/{id}', [ShopController::class, 'detail'])->name('shop.detail');
+Route::get('shop/show/{id}', [ShopController::class, 'show'])->name('shop.show');
+// Route::get('admin/courses/{id}', [CourseController::class, 'show'])->name('admin.courses.show');
+
+
+
     return view('index');
 });
 Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
@@ -30,6 +48,7 @@ Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->n
 Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
 Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
 Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
+
 Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checklogin'])->name('checklogin');
 Route::get('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangePasswordForm'])->name('changePassword');

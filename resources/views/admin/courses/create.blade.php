@@ -49,34 +49,43 @@
                                         @error('image') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label class="form-label mb-1" for="status-org">Trạng thái </label>
-                                        <select class="form-control" name="status">
-                                            <option value="">Tất cả</option>
-                                            <option value="con">Còn</option>
-                                            <option value="het">Hết</option>
-                                        </select>
-                                        @error('status') <div class="alert alert-danger">{{ $message }}</div> @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Danh mục</label>
-                                        <select name="category_id" class="form-select">
-                                            <option value="">Vui lòng chọn</option>
-                                            @foreach($categories as $index => $categorie)
-                                            <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('category_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                    <label class="form-label">Cấp độ </label>
-                                        <select name="level_id" class="form-select">
-                                            <option value="">Vui lòng chọn</option>
-                                            @foreach($levels as $index => $level)
-                                            <option value="{{ $level->id }}">{{ $level->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('level_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
+                                        <div class="mb-3">
+                                            <label class="form-label mb-1" for="status-org">Trạng thái </label>
+                                            <select class="form-control" name="status">
+                                                <option value="">Tất cả</option>
+                                                <option value="0">Còn</option>
+                                                <option value="1">Hết</option>
+                                            </select>
+                                            @error('status') <div class="alert alert-danger">{{ $message }}</div> @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Danh mục</label>
+                                            <select name="category_id" class="form-select">
+                                                <option value="">Vui lòng chọn</option>
+                                                @foreach($categories as $index => $categorie)
+                                                <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('category_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Cấp độ </label>
+                                            <select name="level_id" class="form-select">
+                                                <option value="">Vui lòng chọn</option>
+                                                @foreach($levels as $index => $level)
+                                                <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('level_id') <div class="alert alert-danger">{{ $message }}</div> @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Video</label>
+                                            <input type="file" class="form-control" name="video" placeholder="Video..." id="video" accept="video/*" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="ecommerce-customer-name">Bài đọc</label>
+                                            <textarea class="form-control" name="reading">{{ old('reading') }}</textarea>
+                                        </div>
                                 </thead>
 
                                 </tbody>
