@@ -20,7 +20,7 @@ class ChangePasswordController extends Controller
             'new_password' => 'required|string|min:6|confirmed',
         ]);
 
-        $member = Auth::guard('members')->user();
+        $member = Auth::user();
 
         if (Hash::check($request->current_password, $member->password)) {
             $member->password = Hash::make($request->new_password);

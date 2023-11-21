@@ -11,7 +11,7 @@ use App\Http\Requests\RegisterRequest;
 class AuthController extends Controller
 {
     public function login() {
-        if(Auth::guard('members')->check()) {
+        if(Auth::check()) {
             return redirect()->route('levels.index');
         } else {
             return view('auth.login');
@@ -28,7 +28,7 @@ class AuthController extends Controller
             'password' => 'exists:members,password',
         ], $messages);
         $data = $request->only('email', 'password');
-        if (Auth::guard('members')->attempt($data)) {
+        if (Auth::attempt($data)) {
             return redirect()->route('courses.index')->with('successMessage', 'Đăng nhập thành công');
         } else {
             return back()->withErrors($validator);
@@ -36,7 +36,7 @@ class AuthController extends Controller
         }
     }
     public function logout() {
-        Auth::guard('members')->logout();
+        Auth::logout();
         return redirect()->route('login');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthShopController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('shop.home');
-});Route::get('/a', function () {
+Auth::routes();
+// Route::get('/', function () {
+//     return view('shop.home');
+// });
+Route::get('/a', function () {
     return view('index');
 });
 Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
@@ -46,3 +48,6 @@ Route::prefix('/')->middleware(['auth.check'])->group(function () {
     Route::put('categorie/restoredelete/{id}', [CategoryController::class, 'restoredelete'])->name('categorie.restoredelete');
     Route::get('categorie/destroy/{id}', [CategoryController::class, 'destroy'])->name('categorie_destroy');
 });
+Route::post('/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('addToCart');
+Route::get('/shop/home/cart', [ShopController::class, 'homeCart'])->name('cart');
+Route::delete('/cart/destroy/{id}', [ShopController::class, 'cartDestroy'])->name('destroy-cart');
