@@ -10,7 +10,7 @@
             @foreach($items as $key => $item)
             <div class="item">
                 <div class="fcrse_1 mb-20">
-                    <a href="course_detail_view.html" class="fcrse_img">
+                    <a href="{{ route('shop.show',$item->id) }}" class="fcrse_img">
                         <img src="{{ asset($item->image) }}" alt="">
                         <div class="course-overlay">
                             <div class="crse_reviews">
@@ -21,13 +21,13 @@
                     </a>
                     <div class="fcrse_content">
                         <div class="eps_dots more_dropdown">
-                            <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                            <div class="dropdown-content">
+                            <!-- <a href="#"><i class='uil uil-ellipsis-v'></i></a> -->
+                            <!-- <div class="dropdown-content">
                                 <span><i class='uil uil-share-alt'></i>Share</span>
                                 <span><i class="uil uil-heart"></i>Save</span>
                                 <span><i class='uil uil-ban'></i>Not Interested</span>
                                 <span><i class="uil uil-windsock"></i>Report</span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="vdtodt">
                             <span class="vdt14">109k views</span>
@@ -35,7 +35,6 @@
                         </div>
                         <a href="course_detail_view.html" class="crse14s">{{ $item->name}}</a>
                         <div class="auth1lnkprce">
-                            <p class="cr1fot">By <a href="#">John Doe</a></p>
                             <div class="prce142">$10</div>
                             <button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
                         </div>

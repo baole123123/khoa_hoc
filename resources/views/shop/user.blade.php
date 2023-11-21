@@ -15,7 +15,7 @@
     <!-- Stylesheets -->
      <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
     <link href="{{asset('asset/vendor/unicons-2.0.1/css/unicons.css')}}" rel='stylesheet'>
-    <link href="{{asset('asset/css/vertical-responsive-menu.min.css')}}" rel="stylesheet">  
+    <link href="{{asset('asset/css/vertical-responsive-menu.min.css')}}" rel="stylesheet">
     <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('asset/css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('asset/css/night-mode.css')}}" rel="stylesheet">
@@ -43,95 +43,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xl-9 col-lg-8">
-                        <div class="section3125">
-                            <h4 class="item_title">Live Streams</h4>
-                            <a href="live_streams.html" class="see150">See all</a>
-                            <div class="la5lo1">
-                                <div class="owl-carousel live_stream owl-theme">
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-1.jpg" alt="">
-                                                <h4>John Doe</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-2.jpg" alt="">
-                                                <h4>Jassica</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-9.jpg" alt="">
-                                                <h4>Edututs+</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-3.jpg" alt="">
-                                                <h4>Joginder Singh</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-4.jpg" alt="">
-                                                <h4>Zoena</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-5.jpg" alt="">
-                                                <h4>Albert Dua</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-6.jpg" alt="">
-                                                <h4>Ridhima</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-7.jpg" alt="">
-                                                <h4>Amritpal</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="stream_1">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="images/left-imgs/img-8.jpg" alt="">
-                                                <h4>Jimmy</h4>
-                                                <p>live<span></span></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         @yield('content')
 
 
@@ -140,7 +52,7 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="right_side">
                             <div class="fcrse_2 mb-30">
-                                <div class="tutor_img">
+                                <!-- <div class="tutor_img">
                                     <a href="my_instructor_profile_view.html"><img src="images/left-imgs/img-10.jpg" alt=""></a>
                                 </div>
                                 <div class="tutor_content_dt">
@@ -149,7 +61,7 @@
                                         <div class="mef78" title="Verify">
                                             <i class="uil uil-check-circle"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="tutor_cate">Web Developer, Designer, and Teacher</div>
                                     <ul class="tutor_social_links">
                                         <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>

@@ -49,6 +49,13 @@ class CourseController extends Controller
         $item->status = $request->status;
         $item->category_id = $request->category_id;
         $item->level_id = $request->level_id;
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/videos', $fileName);
+            $item->video = $fileName;
+        }
+        $item->reading = $request->reading;
         // xử lý ảnh
         $fieldName = 'image';
         if ($request->hasFile($fieldName)) {
@@ -89,6 +96,8 @@ class CourseController extends Controller
         $item->status = $request->status;
         $item->category_id = $request->category_id;
         $item->level_id = $request->level_id;
+        $item->video = $request->video;
+        $item->reading = $request->reading;
         // xử lý ảnh
         $fieldName = 'image';
         if ($request->hasFile($fieldName)) {
@@ -111,5 +120,9 @@ class CourseController extends Controller
         // return redirect()->back()->with('successMessage2', 'Xóa thành công');
         return redirect()->route('courses.index')->with('successMessage', 'Xóa thành công');
     }
-
+    public function show($id)
+    {
+        $item = Course::find($id);
+        return view('admin.courses.show', compact('item'));
+    }
 }

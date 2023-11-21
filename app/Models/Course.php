@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    const ACTIVE = 'Còn';
-    const INACTIVE = 'Hết';
+    const ACTIVE = 0;
+    const INACTIVE = 1;
     use HasFactory;
     protected $table = 'courses';
     protected $fillable = [
@@ -17,7 +17,10 @@ class Course extends Model
         'image',
         'status',
         'category_id',
-        'level_id'
+        'level_id',
+        'video',
+        'reading'
+
     ];
     public $timestamps = true;
     public function category() {
