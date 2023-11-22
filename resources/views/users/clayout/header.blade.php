@@ -35,9 +35,10 @@
     <div class="search120">
         <div class="ui search">
             <div class="ui left icon input swdh10">
-                <input class="prompt srch10" type="text"
-                    placeholder="Search for Tuts Videos, Tutors, Tests and more..">
-                <i class='uil uil-search-alt icon icon1'></i>
+                <form action="{{ route('shop.home') }}" method="GET">
+                    <input class="prompt srch10" type="text" name="keyword" placeholder="Nhập..">
+                    <button class="btn btn-red" type="submit"><i class='bx bx-search'></i></button>
+                </form>
             </div>
         </div>
     </div>
@@ -47,13 +48,11 @@
                 <a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
             </li>
             <li>
-                <a href="{{ route('cart') }}" class="option_links cart-item-count" title="cart"><i
-                        class='uil uil-shopping-cart-alt'></i><span class="noti_count cart-quantity">
+                <a href="{{ route('cart') }}" class="option_links cart-item-count" title="cart"><i class='uil uil-shopping-cart-alt'></i><span class="noti_count cart-quantity">
                         {{ count((array) session('cart')) }}</span></a>
             </li>
             <li class="ui dropdown">
-                <a href="#" class="option_links" title="Messages"><i class='uil uil-envelope-alt'></i><span
-                        class="noti_count">3</span></a>
+                <a href="#" class="option_links" title="Messages"><i class='uil uil-envelope-alt'></i><span class="noti_count">3</span></a>
                 <div class="menu dropdown_ms">
                     <a href="#" class="channel_my item">
                         <div class="profile_link">
@@ -89,8 +88,7 @@
                 </div>
             </li>
             <li class="ui dropdown">
-                <a href="#" class="option_links" title="Notifications"><i class='uil uil-bell'></i><span
-                        class="noti_count">3</span></a>
+                <a href="#" class="option_links" title="Notifications"><i class='uil uil-bell'></i><span class="noti_count">3</span></a>
                 <div class="menu dropdown_mn">
                     <a href="#" class="channel_my item">
                         <div class="profile_link">
@@ -121,8 +119,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class="vbm_btn" href="instructor_notifications.html">View All <i
-                            class='uil uil-arrow-right'></i></a>
+                    <a class="vbm_btn" href="instructor_notifications.html">View All <i class='uil uil-arrow-right'></i></a>
                 </div>
             </li>
             <li class="ui dropdown">

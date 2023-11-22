@@ -11,22 +11,22 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="item_f1">
-                    <a href="help.html">Help</a>
-                    <a href="coming_soon.html">Advertise</a>
-                    <a href="coming_soon.html">Developers</a>
-                    <a href="contact_us.html">Contact Us</a>
+                    <a href="help.html">Giúp đỡ</a>
+                    <a href="coming_soon.html">Quảng cáo</a>
+                    <a href="coming_soon.html">Nhà phát triển</a>
+                    <a href="contact_us.html">Chính sách bản quyền</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="item_f1">
-                    <a href="terms_of_use.html">Copyright Policy</a>
-                    <a href="terms_of_use.html">Terms</a>
-                    <a href="terms_of_use.html">Privacy Policy</a>
-                    <a href="sitemap.html">Sitemap</a>
+                    <a href="terms_of_use.html">Chính sách bảo mật</a>
+                    <a href="terms_of_use.html">Điều kiện</a>
+                    <a href="terms_of_use.html">Chính sách bản quyền</a>
+                    <a href="sitemap.html">Sơ đồ trang web</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="item_f3">
+                <!-- <div class="item_f3">
                     <a href="#" class="btn1542">Teach on Cursus</a>
                     <div class="lng_btn">
                         <div class="ui language bottom right pointing dropdown floating" id="languages"
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-12">
                 <div class="footer_bottm">
