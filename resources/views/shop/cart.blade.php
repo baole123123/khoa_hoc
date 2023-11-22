@@ -153,14 +153,14 @@
                     data: data,
                     success: function(response) {
                         if (response.logged_in) {
-                            window.location.href = '{{ route("view-checkout") }}';
+                            window.location.href = '{{ route('view-checkout') }}';
                         } else {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Thất bại',
                                 text: 'Bạn cần phải đăng nhập trước.',
                             }).then(function() {
-                                window.location.href = '{{ route("login-shop") }}';
+                                window.location.href = '{{ route('login-shop') }}';
                             });
                         }
                     },

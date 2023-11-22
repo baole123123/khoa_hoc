@@ -59,5 +59,5 @@ Route::post('/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('ad
 Route::get('/shop/home/cart', [ShopController::class, 'homeCart'])->name('cart');
 Route::delete('/cart/destroy/{id}', [ShopController::class, 'cartDestroy'])->name('destroy-cart');
 Route::post('/checkout', [ShopController::class, 'checkout'])->name('checkout');
-Route::get('/checkout', [ShopController::class, 'viewCheckout'])->name('view-checkout');
-Route::post('/checkout', [ShopController::class, 'storeCheckout'])->name('add');
+Route::get('/checkout/view', [ShopController::class, 'viewCheckout'])->name('view-checkout');
+Route::post('/checkout/add', [ShopController::class, 'storeCheckout'])->name('add');
