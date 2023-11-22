@@ -26,6 +26,7 @@
     <link href="{{asset('asset/vendor/OwlCarousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
     <link href="{{asset('asset/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('asset/vendor/semantic/semantic.min.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -141,9 +142,9 @@
 
 
                     </div>
-                    <div class="col-xl-3 col-lg-4">
+                    {{-- <div class="col-xl-3 col-lg-4">
                         <div class="right_side">
-                            <div class="fcrse_2 mb-30">
+                            <div class="fcrse_2 mb-30"> --}}
 
                                 <!-- <div class="tutor_img">
                                     <a href="my_instructor_profile_view.html"><img src="images/left-imgs/img-10.jpg" alt=""></a>
@@ -173,7 +174,7 @@
                                     <a href="my_instructor_profile_view.html" class="prfle12link">Go To Profile</a> -->
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -189,10 +190,7 @@
     <script src="{{asset('asset/vendor/semantic/semantic.min.js')}}"></script>
     <script src="{{asset('asset/js/custom.js')}}"></script>
     <script src="{{asset('asset/js/night-mode.js')}}"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
+   
 </body>
 
 </html>

@@ -32,21 +32,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/a', function () {
     return view('shop.show');
 });
-//// shop
-Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
-Route::get('shop/detail/{id}', [ShopController::class, 'detail'])->name('shop.detail');
-Route::get('shop/show/{id}', [ShopController::class, 'show'])->name('shop.show');
-// Route::get('admin/courses/{id}', [CourseController::class, 'show'])->name('admin.courses.show');
-
-
-
-
-Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
-Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->name('checkloginShop');
-Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
-Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
-Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
-
 Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checklogin'])->name('checklogin');
 Route::get('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangePasswordForm'])->name('changePassword');
@@ -65,6 +50,14 @@ Route::prefix('/')->middleware(['auth.check'])->group(function () {
     Route::put('categorie/restoredelete/{id}', [CategoryController::class, 'restoredelete'])->name('categorie.restoredelete');
     Route::get('categorie/destroy/{id}', [CategoryController::class, 'destroy'])->name('categorie_destroy');
 });
+Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
+Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->name('checkloginShop');
+Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
+Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
+Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
 Route::post('/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('addToCart');
 Route::get('/shop/home/cart', [ShopController::class, 'homeCart'])->name('cart');
 Route::delete('/cart/destroy/{id}', [ShopController::class, 'cartDestroy'])->name('destroy-cart');
+Route::post('/checkout', [ShopController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/view', [ShopController::class, 'viewCheckout'])->name('view-checkout');
+Route::post('/checkout/add', [ShopController::class, 'storeCheckout'])->name('add');

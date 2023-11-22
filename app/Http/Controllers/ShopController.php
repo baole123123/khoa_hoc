@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Course_Member;
+use Illuminate\Support\Facades\Auth;
 
 
 class ShopController extends Controller
@@ -43,6 +44,7 @@ class ShopController extends Controller
             'name' => $course->name,
             'quantity' => 1,
             'date' => $date,
+            'amount' => $course->amount,
             'image' => $imageUrl,
         ];
         $carts[] = $cartItem;
@@ -95,5 +97,34 @@ class ShopController extends Controller
         return view('shop.show', compact('items'));
 
 
+    }
+    public function viewCheckout() {
+        return view('shop.checkout');
+    }
+    public function checkout(Request $request) {
+        if (Auth::guard('members')->check()) {
+            $user = Auth::guard('members')->user();
+            return response()->json(['logged_in' => $user]);
+        } else {
+            $response = [
+                'message' => 'Bạn cần phải đăng nhập để tiếp tục.',
+                'redirect' => route('login-shop')
+            ];
+            return response()->json($response);
+        }
+    }
+    public function storeCheckout(Request $request) {
+        $course_Member = new Course_Member();
+        $carts = session()->get('cart', []);
+        foreach ($carts as $cart) {
+            $course_Member->courses_id = $cart['course_id'];
+            $course_Member->date = $cart['date'];
+            $course_Member->amount = $cart['amount'];
+            $course_Member->member_id = Auth::guard('members')->user()->id;
+            $cart['member_id'] = Auth::guard('members')->user()->id;
+            $course_Member->save();
+        }
+        session()->forget('cart');
+        return redirect()->route('shop.home')->with('successMessage','Thanh toán thành công');
     }
 }
