@@ -25,7 +25,6 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Auth::routes();
 
 // Route::get('/', function () {
 //     return view('shop.home');
@@ -41,8 +40,7 @@ Route::get('shop/show/{id}', [ShopController::class, 'show'])->name('shop.show')
 
 
 
-    return view('index');
-});
+
 Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
 Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->name('checkloginShop');
 Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
