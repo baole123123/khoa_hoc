@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\Level;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -96,7 +97,6 @@ class CourseController extends Controller
         $item->status = $request->status;
         $item->category_id = $request->category_id;
         $item->level_id = $request->level_id;
-        $item->video = $request->video;
         $item->reading = $request->reading;
         // xử lý ảnh
         $fieldName = 'image';
@@ -109,6 +109,23 @@ class CourseController extends Controller
             $path = str_replace('public/', '', $path);
             $item->image = $path;
         }
+        $existingVideo = $item->video;
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/videos', $fileName);
+            if ($existingVideo) {
+                $oldFilePath = 'videos/' . $existingVideo;
+
+                if (Storage::disk('public')->exists($oldFilePath)) {
+                    Storage::disk('public')->delete($oldFilePath);
+                }
+            }
+            $item->video = $fileName;
+        } else {
+            $item->video = $existingVideo;
+        }
+
         $item->save();
         return redirect()->route('courses.index')->with('successMessage', 'Cập nhật thành công');
     }
