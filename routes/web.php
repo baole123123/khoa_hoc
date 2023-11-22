@@ -61,3 +61,4 @@ Route::delete('/cart/destroy/{id}', [ShopController::class, 'cartDestroy'])->nam
 Route::post('/checkout', [ShopController::class, 'checkout'])->name('checkout');
 Route::get('/checkout/view', [ShopController::class, 'viewCheckout'])->name('view-checkout');
 Route::post('/checkout/add', [ShopController::class, 'storeCheckout'])->name('add');
+Route::get('shop/show/{id}', [ShopController::class, 'show'])->name('shop.show');

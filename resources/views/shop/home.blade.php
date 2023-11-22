@@ -30,7 +30,7 @@
                 @foreach ($items as $key => $item)
                     <div class="item">
                         <div class="course-item">
-                            <a href="course_detail_view.html" class="fcrse_img">
+                            <a href="{{route('shop.show' , $item->id)}}" class="fcrse_img">
                                 <img src="{{ asset($item->image) }}" alt="" class="course-img">
                                 <div class="course-overlay">
                                     <div class="crse_reviews">

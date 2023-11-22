@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Member;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,7 @@ class AuthShopController extends Controller
             'email' => 'exists:users,email',
             'password' => 'exists:users,password',
         ], $messages);
-        
+
         $data = $request->only('email', 'password');
         if (Auth::guard('members')->attempt($data)) {
             $previousUrl = session()->pull('previous_url', '/dashboard');
@@ -36,16 +37,17 @@ class AuthShopController extends Controller
         }
     }
     public function logout() {
-        Auth::logout();
+        Auth::guard('members')->logout();
         return redirect()->route('login-shop');
     }
     public function register() {
         return view('auth.register');
     }
     public function store_register(Request $request) {
-        $user = new User();
+        $user = new Member();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->password = $request->password;
         $user->save();
         return redirect()->route('login-shop');

@@ -1,5 +1,11 @@
 @extends('shop.user')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="path/to/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
 <div class="wrapper _bg4586">
     <div class="_215b01">
         <div class="container-fluid">
@@ -73,8 +79,12 @@
                             Last updated 1/2020
                         </div> -->
                         <ul class="_215b31">
-                            <li><button class="btn_adcart">Add to Cart</button></li>
-                            <li><button class="btn_buy">Buy Now</button></li>
+                        <!-- <li><button class="btn_adcart">Add to Cart</button></li> -->
+                        <li><button class="shrt-cart-btn btn_adcart" data-id="{{ $items->id }}" data-quantity="1"
+                                        data-image="{{ asset($items->image) }}" data-name="{{ $items->name }}"
+                                        data-amount="{{ $items->amount }}">
+                                        Add to Cart
+                                    </button></li>
                         </ul>
 
                     </div>
@@ -133,7 +143,61 @@
 </div>
 
 </div>
-<!-- Body End -->
+<script>
+                    $(document).ready(function() {
+                        $('.shrt-cart-btn').click(function(event) {
+                            event.preventDefault(); // Prevent the default button behavior
+                            var id = $(this).data('id');
+                            var quantity = $(this).data('quantity');
+                            var name = $(this).data('name');
+                            var amount = $(this).data('amount');
+                            var image = $(this).data('image');
+                            var url = '{{ route('addToCart', ['id' => ':id']) }}';
+                            url = url.replace(':id', id);
+                            var data = {
+                                id: id,
+                                quantity: quantity,
+                                name: name,
+                                image: image,
+                                _token: '{{ csrf_token() }}'
+                            };
+                            $.ajax({
+                                url: url,
+                                method: 'POST',
+                                data: data,
+                                success: function(response) {
+                                    $('.cart-quantity').text(response.cartItemCount);
+                                    if (response.exists) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Thất bại',
+                                            text: 'Khóa học đã tồn tại trong giỏ hàng.',
+                                            timer: 1000,
+                                            showConfirmButton: false
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Thành công',
+                                            text: 'Thêm vào giỏ hàng thành công.',
+                                            timer: 1000,
+                                            showConfirmButton: false
+                                        });
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Thất bại',
+                                        text: 'Thêm vào giỏ hàng không thành công.',
+                                        timer: 1000,
+                                        showConfirmButton: false
+                                    });
+                                }
+                            });
+                        });
+                    });
+                </script>
 
 
 @endsection

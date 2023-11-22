@@ -174,7 +174,7 @@
                                     <a href="my_instructor_profile_view.html" class="prfle12link">Go To Profile</a> -->
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -190,7 +190,7 @@
     <script src="{{asset('asset/vendor/semantic/semantic.min.js')}}"></script>
     <script src="{{asset('asset/js/custom.js')}}"></script>
     <script src="{{asset('asset/js/night-mode.js')}}"></script>
-   
+
 </body>
 
 </html>

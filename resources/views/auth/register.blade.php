@@ -62,6 +62,17 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="name">SDT</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="phone">
+                                </div>
+                                @error('phone')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="name">Mật khẩu</div>
                             <div class="value">
                                 <div class="input-group">
