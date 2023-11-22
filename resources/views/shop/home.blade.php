@@ -62,11 +62,72 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="play_btn1"><i class="fas fa-eye"></i></span>
                     </div>
-                @endforeach
+                </a>
+                <div class="fcrse_content">
+                    <div class="eps_dots more_dropdown">
+                        <!-- <a href="#"><i class='uil uil-ellipsis-v'></i></a> -->
+                        <!-- <div class="dropdown-content">
+                            <span><i class='uil uil-share-alt'></i>Share</span>
+                            <span><i class="uil uil-heart"></i>Save</span>
+                            <span><i class='uil uil-ban'></i>Not Interested</span>
+                            <span><i class="uil uil-windsock"></i>Report</span>
+                        </div> -->
+                    </div>
+                    <div class="vdtodt">
+                        <span class="vdt14">109k views</span>
+                        <span class="vdt14">15 days ago</span>
+                    </div>
+                    <a href="course_detail_view.html" class="crse14s">{{ $item->name}}</a>
+                    <div class="auth1lnkprce">
+                        <div class="prce142">$10</div>
+                        <button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
+        @endforeach
     </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 20,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                600: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 4,
+                    nav: false,
+                    loop: false
+                }
+            }
+        })
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="path/to/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
+<div class="section3125 mt-50">
+    @if (session('errorMessage'))
     <script>
         $(document).ready(function() {
             $('.shrt-cart-btn').click(function(event) {
@@ -118,8 +179,17 @@
                             showConfirmButton: false
                         });
                     }
-                });
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Thất bại',
+                        text: 'Thêm vào giỏ hàng không thành công.',
+                    });
+                }
             });
         });
-    </script>
+    });
+</script>
 @endsection

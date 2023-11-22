@@ -102,6 +102,22 @@
                                                             </div>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Bài đọc</label>
+                                                                <textarea name="reading" class="form-control" style="width: 275%;">{{ $item->reading }}</textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Video</label>
+                                                                <input type="file" class="form-control" name="video" value="{{ asset('storage/videos/' . $item->video) }}" placeholder="Video..." id="video" accept="video/*">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>

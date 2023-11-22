@@ -15,7 +15,7 @@
     <!-- Stylesheets -->
      <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
     <link href="{{asset('asset/vendor/unicons-2.0.1/css/unicons.css')}}" rel='stylesheet'>
-    <link href="{{asset('asset/css/vertical-responsive-menu.min.css')}}" rel="stylesheet">  
+    <link href="{{asset('asset/css/vertical-responsive-menu.min.css')}}" rel="stylesheet">
     <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('asset/css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('asset/css/night-mode.css')}}" rel="stylesheet">
@@ -43,6 +43,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xl-9 col-lg-8">
+
+
+
                         <div class="section3125">
                             <h4 class="item_title">Live Streams</h4>
                             <a href="live_streams.html" class="see150">See all</a>
@@ -132,6 +135,7 @@
                                 </div>
                             </div>
                         </div>
+
                         @yield('content')
 
 
@@ -140,8 +144,13 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="right_side">
                             <div class="fcrse_2 mb-30">
+
+                                <!-- <div class="tutor_img">
+                                    <a href="my_instructor_profile_view.html"><img src="images/left-imgs/img-10.jpg" alt=""></a>
+
                                 <div class="tutor_img">
                                     <a href="my_instructor_profile_view.html"><img src="{{asset('asset/images/left-imgs/img-10.jpg')}}" alt=""></a>
+
                                 </div>
                                 <div class="tutor_content_dt">
                                     <div class="tutor150">
@@ -149,7 +158,7 @@
                                         <div class="mef78" title="Verify">
                                             <i class="uil uil-check-circle"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="tutor_cate">Web Developer, Designer, and Teacher</div>
                                     <ul class="tutor_social_links">
                                         <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>

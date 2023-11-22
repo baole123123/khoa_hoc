@@ -3,7 +3,11 @@
 use App\Models\Course;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\CourseController;
+
 use App\Http\Controllers\AuthShopController;
+
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -18,12 +22,15 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Auth::routes();
+
+
+
+
 // Route::get('/', function () {
 //     return view('shop.home');
 // });
 Route::get('/a', function () {
-    return view('index');
+    return view('shop.show');
 });
 Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checklogin'])->name('checklogin');
