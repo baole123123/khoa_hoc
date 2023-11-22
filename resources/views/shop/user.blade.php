@@ -47,7 +47,7 @@
 
 
 
-                        <div class="section3125">
+                        <!-- <div class="section3125">
                             <h4 class="item_title">Live Streams</h4>
                             <a href="live_streams.html" class="see150">See all</a>
                             <div class="la5lo1">
@@ -135,7 +135,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         @yield('content')
 
@@ -160,7 +160,7 @@
                                             <i class="uil uil-check-circle"></i>
                                         </div>
                                     </div> -->
-                                    {{-- <div class="tutor_cate">Web Developer, Designer, and Teacher</div>
+                                    <!-- <div class="tutor_cate">Web Developer, Designer, and Teacher</div>
                                     <ul class="tutor_social_links">
                                         <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
@@ -170,9 +170,9 @@
                                     <div class="tut1250">
                                         <span class="vdt15">615K Students</span>
                                         <span class="vdt15">12 Courses</span>
-                                    </div> --}}
-                                    {{-- <a href="my_instructor_profile_view.html" class="prfle12link">Go To Profile</a> --}}
-                                {{-- </div>
+                                    </div>
+                                    <a href="my_instructor_profile_view.html" class="prfle12link">Go To Profile</a> -->
+                                </div>
                             </div>
                         </div> --}}
                     </div>

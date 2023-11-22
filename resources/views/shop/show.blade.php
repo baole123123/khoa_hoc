@@ -41,8 +41,8 @@
                             </div>
                             <div class="col-xl-8 col-lg-7 col-md-6">
                                 <div class="_215b03">
-                                    <h2>The Web Developer Bootcamp</h2>
-                                    <span class="_215b04">The only course you need to learn web development - HTML, CSS, JS, Node, and More!</span>
+                                    <h2>{{ $items->name }}</h2>
+                                    <span class="_215b04">{{ $items->description }}</span>
                                 </div>
                                 <div class="_215b05">
                                     <div class="crse_reviews mr-2">
@@ -69,9 +69,9 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="_215b05">
+                        <!-- <div class="_215b05">
                             Last updated 1/2020
-                        </div>
+                        </div> -->
                         <ul class="_215b31">
                             <li><button class="btn_adcart">Add to Cart</button></li>
                             <li><button class="btn_buy">Buy Now</button></li>
