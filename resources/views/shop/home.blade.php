@@ -23,12 +23,6 @@
                 });
             </script>
         @endif
-        <style>
-            .course-img {
-                width: 20%;
-                height: 20%;
-            }
-        </style>
         <h4 class="item_title">Các khóa học</h4>
         <a href="#" class="see150">See all</a>
         <div class="la5lo1">
@@ -66,90 +60,90 @@
                                     <button class="shrt-cart-btn" data-id="{{ $item->id }}" data-quantity="1"
                                         data-image="{{ asset($item->image) }}" data-name="{{ $item->name }}"
                                         data-amount="{{ $item->amount }}">
-                                        <i class="bx bxs-cart"></i>
+                                        <i class='bx bxs-cart'></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-    <script>
-        $(document).ready(function() {
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 20,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: false
-                    },
-                    600: {
-                        items: 3,
-                        nav: false
-                    },
-                    1000: {
-                        items: 4,
-                        nav: false,
-                        loop: false
-                    }
-                }
-            })
-        });
-    </script>
-   <script>
-    $(document).ready(function() {
-        $('.shrt-cart-btn').click(function(event) {
-            event.preventDefault(); // Prevent the default button behavior
-            var id = $(this).data('id');
-            var quantity = $(this).data('quantity');
-            var name = $(this).data('name');
-            var amount = $(this).data('amount');
-            var image = $(this).data('image');
-            var url = '{{ route('addToCart', ['id' => ':id']) }}';
-            url = url.replace(':id', id);
-            var data = {
-                id: id,
-                quantity: quantity,
-                name: name,
-                image: image,
-                _token: '{{ csrf_token() }}'
-            };
-            $.ajax({
-                url: url,
-                method: 'POST',
-                data: data,
-                success: function(response) {
-                    $('.cart-quantity').text(response.cartItemCount);
-                    if (response.exists) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Thất bại',
-                            text: 'Khóa học đã tồn tại trong giỏ hàng.',
-                            timer: 1000,
-                            showConfirmButton: false
-                        });
-                    } else {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Thành công',
-                            text: 'Thêm vào giỏ hàng thành công.',
-                            timer: 1000,
-                            showConfirmButton: false
-                        });
-                    }
-                },
-                error: function(xhr, status, error) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Thất bại',
-                        text: 'Thêm vào giỏ hàng không thành công.',
-                        timer: 1000,
-                        showConfirmButton: false
+                <script>
+                    $(document).ready(function() {
+                        $('.owl-carousel').owlCarousel({
+                            loop: true,
+                            margin: 20,
+                            responsiveClass: true,
+                            responsive: {
+                                0: {
+                                    items: 1,
+                                    nav: false
+                                },
+                                600: {
+                                    items: 3,
+                                    nav: false
+                                },
+                                1000: {
+                                    items: 4,
+                                    nav: false,
+                                    loop: false
+                                }
+                            }
+                        })
                     });
-                }
-            });
-        });
-    });
-</script>
-@endsection
+                </script>
+                <script>
+                    $(document).ready(function() {
+                        $('.shrt-cart-btn').click(function(event) {
+                            event.preventDefault(); // Prevent the default button behavior
+                            var id = $(this).data('id');
+                            var quantity = $(this).data('quantity');
+                            var name = $(this).data('name');
+                            var amount = $(this).data('amount');
+                            var image = $(this).data('image');
+                            var url = '{{ route('addToCart', ['id' => ':id']) }}';
+                            url = url.replace(':id', id);
+                            var data = {
+                                id: id,
+                                quantity: quantity,
+                                name: name,
+                                image: image,
+                                _token: '{{ csrf_token() }}'
+                            };
+                            $.ajax({
+                                url: url,
+                                method: 'POST',
+                                data: data,
+                                success: function(response) {
+                                    $('.cart-quantity').text(response.cartItemCount);
+                                    if (response.exists) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Thất bại',
+                                            text: 'Khóa học đã tồn tại trong giỏ hàng.',
+                                            timer: 1000,
+                                            showConfirmButton: false
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Thành công',
+                                            text: 'Thêm vào giỏ hàng thành công.',
+                                            timer: 1000,
+                                            showConfirmButton: false
+                                        });
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Thất bại',
+                                        text: 'Thêm vào giỏ hàng không thành công.',
+                                        timer: 1000,
+                                        showConfirmButton: false
+                                    });
+                                }
+                            });
+                        });
+                    });
+                </script>
+            @endsection
