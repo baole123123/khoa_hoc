@@ -35,6 +35,10 @@ class AuthShopController extends Controller
             return redirect()->back()->with('errorMessage','Đăng nhập thất bại');
         }
     }
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login-shop');
+    }
     public function register() {
         return view('auth.register');
     }

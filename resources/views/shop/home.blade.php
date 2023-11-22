@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
     <div class="section3125 mt-50">
-        @if (session('errorMessage'))
+        @if (session('successMessage'))
             <script>
                 Swal.fire({
-                    icon: 'error',
-                    title: '<h6>{{ session('errorMessage') }}</h6>',
+                    icon: 'success',
+                    title: '<h6>{{ session('successMessage') }}</h6>',
                     showConfirmButton: false,
                     timer: 2000,
                     width: '300px',
@@ -56,10 +56,9 @@
                                 <a href="course_detail_view.html" class="crse14s">{{ $item->name }}</a>
                                 <div class="auth1lnkprce">
                                     <p class="cr1fot">By <a href="#">John Doe</a></p>
-                                    <div class="prce142">$10</div>
+                                    <div class="prce142">{{ $item->amount }}</div>
                                     <button class="shrt-cart-btn" data-id="{{ $item->id }}" data-quantity="1"
-                                        data-image="{{ asset($item->image) }}" data-name="{{ $item->name }}">Add to
-                                        Cart</button>
+                                        data-image="{{ asset($item->image) }}" data-name="{{ $item->name }}" data-amount="{{ $item->amount }}"><i class='bx bx-cart'></i></button>
                                 </div>
                             </div>
                         </div>
@@ -75,6 +74,7 @@
                 var id = $(this).data('id');
                 var quantity = $(this).data('quantity');
                 var name = $(this).data('name');
+                var amount = $(this).data('amount');
                 var image = $(this).data('image');
                 var url = '{{ route('addToCart', ['id' => ':id']) }}';
                 url = url.replace(':id', id);
@@ -90,28 +90,32 @@
                     method: 'POST',
                     data: data,
                     success: function(response) {
-                        console.log(response);
                         $('.cart-quantity').text(response.cartItemCount);
                         if (response.exists) {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Thất bại',
                                 text: 'Khóa học đã tồn tại trong giỏ hàng.',
+                                timer: 1000,
+                                showConfirmButton: false
                             });
                         } else {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Thành công',
                                 text: 'Thêm vào giỏ hàng thành công.',
+                                timer: 1000,
+                                showConfirmButton: false
                             });
                         }
                     },
                     error: function(xhr, status, error) {
-                        console.log(xhr.responseText);
                         Swal.fire({
                             icon: 'error',
                             title: 'Thất bại',
                             text: 'Thêm vào giỏ hàng không thành công.',
+                            timer: 1000,
+                            showConfirmButton: false
                         });
                     }
                 });
