@@ -272,7 +272,7 @@ html {
 }
 
 body {
-	margin: 0;
+	margin: 1;
 	font-family: "Roboto", sans-serif !important;
 	font-size: 0.875rem;
 	line-height: 1.42857143;
@@ -372,6 +372,9 @@ input[type=text] {
     color: #afafaf;
     text-align: left;
     line-height: 24px;
+}
+#hbg {
+    opacity:1;
 }
 
 .left_section {
