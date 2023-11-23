@@ -1,0 +1,42 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Users {
+  id integer [primary key]
+  username varchar
+  password text
+  email text
+}
+Table Roles {
+  id integer [primary key]
+  role_name varchar
+}
+Table Permissions {
+  id integer [primary key]
+  permission_name varchar
+}
+Table UserRoles {
+  id integer [primary key]
+  user_id integer [ref: > Users.id]
+  role_id integer [ref: > Roles.id]
+}
+Table RolePermissions {
+  id integer [primary key]
+  role_id integer [ref: > Roles.id]
+  permission_id integer [ref: > Permissions.id]
+}
+Table Drinks {
+  id integer [primary key]
+  name varchar
+  image text
+  price integer
+  status integer
+}
+Table Orders {
+  id integer [primary key]
+  user_id integer [ref: < Users.id]
+  drink_id integer [ref: > Drinks.id]
+  quantity integer
+  order_date date
+}
+

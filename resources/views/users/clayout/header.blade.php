@@ -48,11 +48,13 @@
                 <a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
             </li>
             <li>
-                <a href="{{ route('cart') }}" class="option_links cart-item-count" title="cart"><i class='uil uil-shopping-cart-alt'></i><span class="noti_count cart-quantity">
+                <a href="{{ route('cart') }}" class="option_links cart-item-count" title="cart"><i
+                        class='uil uil-shopping-cart-alt'></i><span class="noti_count cart-quantity">
                         {{ count((array) session('cart')) }}</span></a>
             </li>
             <li class="ui dropdown">
-                <a href="#" class="option_links" title="Messages"><i class='uil uil-envelope-alt'></i><span class="noti_count">0</span></a>
+                <a href="#" class="option_links" title="Messages"><i class='uil uil-envelope-alt'></i><span
+                        class="noti_count">0</span></a>
                 <div class="menu dropdown_ms">
                     <a href="#" class="channel_my item">
 
@@ -69,31 +71,42 @@
 
             <li class="ui dropdown">
                 <a href="#" class="opts_account" title="Account">
-                    <img src="{{ asset('asset/images/hd_dp.jpg')}}" alt="">
+                    @if (Auth::guard('members')->check())
+                        <img src="{{ asset(Auth::guard('members')->user()->image) }}"
+                            alt="{{ Auth::guard('members')->user()->name }}">
+                    @else
+                        <h6><img src="{{ asset('https://cdn.pixabay.com/photo/2017/06/21/07/51/icon-2426371_1280.png') }}"
+                                alt=""></h6>
+                    @endif
                 </a>
                 <div class="menu dropdown_account">
                     <div class="channel_my">
                         <div class="profile_link">
                             <div class="pd_content">
                                 <div class="rhte85">
-                                    <h6>Joginder Singh</h6>
-                                    <div class="mef78" title="Verify">
-                                        <i class='uil uil-check-circle'></i>
-                                    </div>
+                                    @if (Auth::guard('members')->check())
+                                        <h6>{{ Auth::guard('members')->user()->name }}</h6>
+                                    @else
+                                        <p>
+                                            <a href="{{ route('login-shop') }}">Đăng nhập</a>
+                                        </p>
+                                    @endif
                                 </div>
-                                <span>gambol943@gmail.com</span>
+                                @if (Auth::guard('members')->check())
+                                    <span>{{ Auth::guard('members')->user()->email }}</span>
+                                @else
+                                    <span></span>
+                                @endif
                             </div>
                         </div>
                     </div>
 
-                    <a href="setting.html" class="item channel_item">Setting</a>
-                    <style>
-                        #hbg {
-                            opacity: 1;
-                        }
-                    </style>
-
-                    <a href="sign_in.html" class="item channel_item" id="hbg">Sign Out</a>
+                    <a href="setting.html" class="item channel_item"></a>
+                    @if (Auth::guard('members')->check())
+                        <a href="{{ route('logout-shop') }}" class="item channel_item" id="hbg">Đăng xuất</a>
+                    @else
+                        <span></span>
+                    @endif
                 </div>
             </li>
         </ul>

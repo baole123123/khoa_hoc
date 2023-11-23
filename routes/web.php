@@ -54,6 +54,7 @@ Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-sho
 Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->name('checkloginShop');
 Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
 Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
+Route::post('/logout', [AuthShopController::class, 'logout'])->name('logout-shop');
 Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
 Route::post('/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('addToCart');
 Route::get('/shop/home/cart', [ShopController::class, 'homeCart'])->name('cart');
