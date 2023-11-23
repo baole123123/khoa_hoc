@@ -37,7 +37,7 @@ Route::post('/checklogin', [AuthController::class, 'checklogin'])->name('checklo
 Route::get('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangePasswordForm'])->name('changePassword');
 Route::post('/change-password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'changePassword'])->name('changePassword.submit');
 Route::prefix('/')->middleware(['auth.check'])->group(function () {
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/logout-admin', [AuthController::class, 'logout'])->name('logout');
     Route::get('/members/profile/{id}', [\App\Http\Controllers\MemberController::class, 'showProfile'])->name('members.profile');
     Route::resource('levels', \App\Http\Controllers\LevelController::class);
     Route::resource('courses', \App\Http\Controllers\CourseController::class);
@@ -52,14 +52,16 @@ Route::prefix('/')->middleware(['auth.check'])->group(function () {
 });
 Route::get('/login-shop', [AuthShopController::class, 'login'])->name('login-shop');
 Route::post('/checkloginShop', [AuthShopController::class, 'checkloginShop'])->name('checkloginShop');
-Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
-Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
-Route::post('/logout', [AuthShopController::class, 'logout'])->name('logout-shop');
-Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
-Route::post('/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('addToCart');
-Route::get('/shop/home/cart', [ShopController::class, 'homeCart'])->name('cart');
-Route::delete('/cart/destroy/{id}', [ShopController::class, 'cartDestroy'])->name('destroy-cart');
-Route::post('/checkout', [ShopController::class, 'checkout'])->name('checkout');
-Route::get('/checkout/view', [ShopController::class, 'viewCheckout'])->name('view-checkout');
-Route::post('/checkout/add', [ShopController::class, 'storeCheckout'])->name('add');
-Route::get('shop/show/{id}', [ShopController::class, 'show'])->name('shop.show');
+Route::prefix('/')->middleware(['preventBackHistory'])->group(function () {
+    Route::get('/shop-register', [AuthShopController::class, 'register'])->name('registerShop');
+    Route::post('/store-register', [AuthShopController::class, 'store_register'])->name('store_register');
+    Route::get('/logout', [AuthShopController::class, 'logout'])->name('logout-shop');
+    Route::get('shop/home', [ShopController::class, 'index'])->name('shop.home');
+    Route::post('/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('addToCart');
+    Route::get('/shop/home/cart', [ShopController::class, 'homeCart'])->name('cart');
+    Route::delete('/cart/destroy/{id}', [ShopController::class, 'cartDestroy'])->name('destroy-cart');
+    Route::post('/checkout', [ShopController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout/view', [ShopController::class, 'viewCheckout'])->name('view-checkout');
+    Route::post('/checkout/add', [ShopController::class, 'storeCheckout'])->name('add');
+    Route::get('shop/show/{id}', [ShopController::class, 'show'])->name('shop.show');
+});

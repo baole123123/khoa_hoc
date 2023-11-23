@@ -10,10 +10,11 @@ class PreventBackHistory
     public function handle(Request $request, Closure $next)
     {
         if (Auth::guard('members')->check()) {
-            return $next($request);
+            if($request->route()->getName() === '/logout') {
+                $request->session()->forget('members');
+                return redirect()->route('login-shop');
+            }
         }
-
-        // Xử lý khi chưa đăng nhập
-        return redirect()->route('login');
+        return $next($request);
     }
 }
