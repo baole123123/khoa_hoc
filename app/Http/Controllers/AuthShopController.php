@@ -27,7 +27,7 @@ class AuthShopController extends Controller
         $data = $request->only('email', 'password');
         if (Auth::guard('members')->attempt($data)) {
             $previousUrl = session()->pull('previous_url', '/dashboard');
-            if ($previousUrl === route('login-shop')) {
+            if ($previousUrl === route('login-shop') || $previousUrl === route('registerShop')) {
                 return redirect('shop/home')->with('successMessage', 'Đăng nhập thành công');
             } else {
                 return redirect()->intended($previousUrl)->with('successMessage', 'Đăng nhập thành công');
