@@ -1,7 +1,7 @@
 @extends('shop.user')
 @section('content')
 <div class="purchase-info">
-    <h2>Thông tin mua hàng</h2>
+    <h2>Thông tin người mua</h2>
     
     <form action="{{ route('add') }}" method="POST" class="needs-validation" novalidate>
       @csrf
