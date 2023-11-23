@@ -83,7 +83,7 @@
                         <li><button class="shrt-cart-btn btn_adcart" data-id="{{ $items->id }}" data-quantity="1"
                                         data-image="{{ asset($items->image) }}" data-name="{{ $items->name }}"
                                         data-amount="{{ $items->amount }}">
-                                        Add to Cart
+                                        Thêm vào giỏ hàng
                                     </button></li>
                         </ul>
 
