@@ -45,6 +45,8 @@ Route::prefix('/')->middleware(['auth.check'])->group(function () {
     Route::resource('chapters', \App\Http\Controllers\ChapterController::class);
     Route::resource('lessons', \App\Http\Controllers\LessonContrller::class);
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+    Route::resource('course_member', \App\Http\Controllers\Course_MemberController::class);
+
     Route::put('categorie/softdeletes/{id}', [CategoryController::class, 'softdeletes'])->name('categorie.softdeletes');
     Route::get('categorie/trash', [CategoryController::class, 'trash'])->name('categorie.trash');
     Route::put('categorie/restoredelete/{id}', [CategoryController::class, 'restoredelete'])->name('categorie.restoredelete');

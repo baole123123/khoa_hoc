@@ -44,9 +44,7 @@
     </div>
     <div class="header_right">
         <ul>
-            <li>
-                <a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
-            </li>
+            
             <li>
                 <a href="{{ route('cart') }}" class="option_links cart-item-count" title="cart"><i
                         class='uil uil-shopping-cart-alt'></i><span class="noti_count cart-quantity">

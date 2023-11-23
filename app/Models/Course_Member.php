@@ -16,4 +16,12 @@ class Course_Member extends Model
         'amount',
     ];
     public $timestamps = true;
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'courses_id', 'id');
+    }
+    public function member()
+    {
+        return $this->belongsTo(Member::class, 'member_id', 'id');
+    }
 }

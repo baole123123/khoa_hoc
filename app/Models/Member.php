@@ -20,8 +20,14 @@ class Member extends Authenticatable
         'image',
     ];
     public $timestamps = true;
-    public function courses() {
-        return $this->belongsToMany(Course::class,'course_member','member_id','courses_id');
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'courses_id');
+    }
+    public function course_member()
+    {
+        return $this->hasMany(Course_Member::class, 'member_id','id');
     }
     protected $hidden = [
         'password',
@@ -37,4 +43,5 @@ class Member extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
 }

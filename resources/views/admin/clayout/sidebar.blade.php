@@ -86,4 +86,16 @@
                 </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-cart4"></i><span>Đơn hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="icons-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ route('course_member.index') }}">
+                        <i class="bi bi-circle"></i><span>Danh sách đơn hàng</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
 </aside>

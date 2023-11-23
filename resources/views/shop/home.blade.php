@@ -24,7 +24,6 @@
             </script>
         @endif
         <h4 class="item_title">Các khóa học</h4>
-        <a href="#" class="see150">See all</a>
         <div class="la5lo1">
             <div class="owl-carousel featured_courses owl-theme">
                 @foreach ($items as $key => $item)
@@ -51,7 +50,6 @@
                                 </div>
                                 <div class="vdtodt">
                                     <span class="vdt14">109k views</span>
-                                    <span class="vdt14">15 days ago</span>
                                 </div>
                                 <a href="course_detail_view.html" class="crse14s">{{ $item->name }}</a>
                                 <div class="auth1lnkprce">
